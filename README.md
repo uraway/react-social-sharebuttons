@@ -12,6 +12,7 @@ $ npm install --save react-social-sharebuttons
 ### Documents
 
 - [Hatena Bookmark](https://github.com/uraway/react-social-sharebuttons/blob/master/documents/react-hatenabookmark-button.md)
+- [Hatenabookmark 日本語ドキュメント/website](http://uraway.hatenablog.com/entry/2016/02/05/000000)
 - [LINE](https://github.com/uraway/react-social-sharebuttons/blob/master/documents/react-line-button.md)
 - [LINE 日本語ドキュメント/website](http://uraway.hatenablog.com/entry/2016/02/04/000000)
 - [Feedly](https://github.com/uraway/react-social-sharebuttons/blob/master/documents/react-feedly-button.md)

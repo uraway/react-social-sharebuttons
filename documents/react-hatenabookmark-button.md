@@ -1,6 +1,8 @@
 # react-social-sharebuttons(HatenaBookmark)
 Simple React components for HatenaBookmark Button.
 
+- [HatenabookmarkButton 日本語ドキュメント/website](http://uraway.hatenablog.com/entry/2016/02/05/000000)
+
 ## Install
 ```
 npm install --save react-social-sharebuttons
