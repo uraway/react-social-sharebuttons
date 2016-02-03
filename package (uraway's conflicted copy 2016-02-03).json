@@ -1,12 +1,12 @@
 {
   "name": "react-social-sharebuttons",
-  "version": "0.2.3",
+  "version": "0.3.3",
   "description": "Simple React components for Social Share Buttons.",
   "main": "lib/main.js",
   "watch": {
     "build": {
       "patterns": ["src"],
-      "extensions": "js,jsx"
+      "extensions": "jsx"
     }
   },
   "scripts": {
@@ -22,7 +22,15 @@
     "line",
     "hatena",
     "hatenabookmark",
-    "social"
+    "hatena-button",
+    "hatenabookmark-button",
+    "feedly",
+    "feedly-button",
+    "linkedin",
+    "linkedin-button",
+    "LinkedIn",
+    "social",
+    "social-share"
   ],
   "author": "Masato Urai (@uraway_)",
   "license": "MIT",

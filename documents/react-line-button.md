@@ -1,7 +1,7 @@
 # react-line-button
 Simple React components for LINE Button.
 
-[日本語ドキュメント/website](http://uraway.hatenablog.com/entry/2016/02/02/000000)
+[日本語ドキュメント/website](http://uraway.hatenablog.com/entry/2016/02/04/000000)
 
 - **This component is aimed for smart phone users.** It does not work for PC users.
 

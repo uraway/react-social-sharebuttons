@@ -1,17 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { LINEButton, HatenabookmarkButton, FeedlyButton } from '../lib/main.js';
+import { LINEButton, HatenabookmarkButton, FeedlyButton, GREEButton, LinkedinButton } from '../lib/main.js';
 
 class App extends React.Component {
   render() {
-    let linetext = 'LINEで送る';
-    let lineimage = '20x20';
-    let url = 'http://uraway.hatenablog.com/';
-    let feedurl = 'http://uraway.hatenablog.com/feed';
-    let feedlylayout = 'logo-green';
+    const linetext = 'LINEで送る';
+    const lineimage = '20x20';
+    const url = 'http://uraway.hatenablog.com/';
+    const feedurl = 'http://uraway.hatenablog.com/feed';
+    const feedlylayout = 'logo-green';
+    const type = 1;
+    const lang = 'ar';
     return (
       <div>
+        <LinkedinButton lang={lang} />
+        <GREEButton url={url} type={type}/>
         <FeedlyButton feedurl={feedurl} layout={feedlylayout} />
         <HatenabookmarkButton />
         <LINEButton text={linetext} image={lineimage} />
