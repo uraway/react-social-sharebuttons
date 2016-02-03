@@ -1,7 +1,5 @@
-# react-line-button
+# react-social-sharebuttons(LINE)
 Simple React components for LINE Button.
-
-[日本語ドキュメント/website](http://uraway.hatenablog.com/entry/2016/02/02/000000)
 
 - **This component is aimed for smart phone users.** It does not work for PC users.
 
@@ -27,14 +25,14 @@ class App extends React.Component {
 
 ## props
 
-#### text
+#### text (Optinal)
 
 The text you want to share. You can only specify the page title and page URL.
 
 - [ガイドライン](https://media.line.me/guideline/ja/)
 - [Guideline](https://media.line.me/guideline/en/)
 
-#### image
+#### image (default is 20x20)
 
 Specify size of the image you want to use as LINE button.
 

@@ -1,19 +1,19 @@
-# react-feedly-button
+# react-social-sharebuttons(Feedly)
 Simple React components for Feedly Button.
 
 ## Install
 ```
-npm install --save react-social-sharebutton
+npm install --save react-social-sharebuttons
 ```
 
 ## Example
 ```javascript
-import { FeedlyButton } from 'react-social-sharebutton';
+import { FeedlyButton } from 'react-social-sharebuttons';
 
 class App extends React.Component {
   render() {
-    let feedurl = "https://github.com";
-    let layout = "simple-balloon";
+    let feedurl = "http://uraway.hatenablog.com/";
+    let layout = "logo-green";
 
     return (
       <FeedlyButton feedurl={feedurl} layout={layout} />
@@ -24,11 +24,11 @@ class App extends React.Component {
 
 ## props
 
-#### feedurl
+#### feedurl (Required)
 
 The Feed URL you want users to subscribe. See more [info.](http://feedly.uservoice.com/knowledgebase/articles/206805-what-is-my-feed-url-)
 
-#### layout
+#### layout (Default is rectangle-volume-big)
 The button layout. Choose from the followings. (These sample images are twice larger than actual images.)
 
 ###### rectangle-volume-big
