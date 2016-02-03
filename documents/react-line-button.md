@@ -39,19 +39,19 @@ The text you want to share. You can only specify the page title and page URL.
 Specify size of the image you want to use as LINE button.
 
 ##### 20x20
-![20x20](../images/linebutton_20x20.png)
+![20x20](../images/line/linebutton_20x20.png)
 
 ##### 30x30
-![30x30](../images/linebutton_30x30.png)
+![30x30](../images/line/linebutton_30x30.png)
 
 ##### 36x60
-![36x60](../images/linebutton_36x60.png)
+![36x60](../images/line/linebutton_36x60.png)
 
 ##### 40x40
-![40x40](../images/linebutton_40x40.png)
+![40x40](../images/line/linebutton_40x40.png)
 
 ##### 82x20
-![82x20](../images/linebutton_82x20.png)
+![82x20](../images/line/linebutton_82x20.png)
 
 ---
 MIT licensed
