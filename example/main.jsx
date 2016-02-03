@@ -1,16 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { LINEButton, HatenabookmarkButton } from '../lib/main.js';
+import { LINEButton, HatenabookmarkButton, FeedlyButton } from '../lib/main.js';
 
 class App extends React.Component {
   render() {
     let text = 'LINEで送る';
-    let image = '20x20';
+    let lineimage = '20x20';
+    let url = 'http://uraway.hatenablog.com/';
+    let feedurl = 'http://uraway.hatenablog.com/feed';
+    let feedlyimage = 'logo-green';
     return (
       <div>
+        <FeedlyButton feedurl={feedurl} image={feedlyimage} />
         <HatenabookmarkButton />
-        <LINEButton text={text} image={image} />
+        <LINEButton text={text} image={lineimage} />
       </div>
     );
   }
