@@ -5,16 +5,16 @@ import { LINEButton, HatenabookmarkButton, FeedlyButton } from '../lib/main.js';
 
 class App extends React.Component {
   render() {
-    let text = 'LINEで送る';
+    let linetext = 'LINEで送る';
     let lineimage = '20x20';
     let url = 'http://uraway.hatenablog.com/';
     let feedurl = 'http://uraway.hatenablog.com/feed';
-    let feedlyimage = 'logo-green';
+    let feedlylayout = 'logo-green';
     return (
       <div>
-        <FeedlyButton feedurl={feedurl} image={feedlyimage} />
+        <FeedlyButton feedurl={feedurl} layout={feedlylayout} />
         <HatenabookmarkButton />
-        <LINEButton text={text} image={lineimage} />
+        <LINEButton text={linetext} image={lineimage} />
       </div>
     );
   }
