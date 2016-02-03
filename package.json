@@ -1,6 +1,6 @@
 {
   "name": "react-social-sharebuttons",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "Simple React components for Social Share Buttons.",
   "main": "lib/main.js",
   "watch": {
@@ -26,13 +26,13 @@
   ],
   "author": "Masato Urai (@uraway_)",
   "license": "MIT",
-  "homepage": "https://github.com/uraway/react-line-button",
+  "homepage": "https://github.com/uraway/react-social-sharebuttons",
   "repository": {
     "type": "git",
-    "url": "git://github.com/uraway/react-line-button.git"
+    "url": "git://github.com/uraway/react-social-sharebuttons.git"
   },
   "bugs": {
-    "url": "https://github.com/uraway/react-line-button/issues"
+    "url": "https://github.com/uraway/react-social-sharebuttons/issues"
   },
   "peerDependencies": {
     "react": "^0.13.0",
