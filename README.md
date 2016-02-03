@@ -13,6 +13,7 @@ $ npm install --save react-social-sharebuttons
 
 - [Hatena Bookmark](./documents/react-hatenabookmark-button.md)
 - [LINE](./documents/react-line-button.md)
+- [Feedly](./documents/react-feedly-button.md)
 
 -----
 MIT licensed
