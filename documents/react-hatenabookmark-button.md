@@ -3,12 +3,12 @@ Simple React components for HatenaBookmark Button.
 
 ## Install
 ```
-npm install --save react-social-sharebutton
+npm install --save react-social-sharebuttons
 ```
 
 ## Example
 ```javascript
-import { HatenabookmarkButton } from 'react-social-sharebutton';
+import { HatenabookmarkButton } from 'react-social-sharebuttons';
 
 class App extends React.Component {
   render() {
