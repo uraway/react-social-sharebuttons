@@ -5,12 +5,12 @@ Simple React components for LINE Button.
 
 ## Install
 ```
-npm install --save react-social-sharebutton
+npm install --save react-social-sharebuttons
 ```
 
 ## Example
 ```javascript
-import { LINEButton } from 'react-social-sharebutton';
+import { LINEButton } from 'react-social-sharebuttons';
 
 class App extends React.Component {
   render() {
