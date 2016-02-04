@@ -11,8 +11,8 @@ $ npm install --save react-social-sharebuttons
 
 ### Documents
 
-- [Linkedin]()
-- [Linkedin 日本語ドキュメント/website]()
+- [Linkedin](https://github.com/uraway/react-social-sharebuttons/blob/master/documents/react-Linkedin-button.md)
+- [Linkedin 日本語ドキュメント/website](http://uraway.hatenablog.com/entry/2016/02/08/000000)
 
 - [Feedly](https://github.com/uraway/react-social-sharebuttons/blob/master/documents/react-feedly-button.md)
 - [Feedly 日本語ドキュメント/website](http://uraway.hatenablog.com/entry/2016/02/06/000000)

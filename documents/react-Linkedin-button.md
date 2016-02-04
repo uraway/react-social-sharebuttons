@@ -1,7 +1,7 @@
 # react-social-sharebuttons(Linkedin)
 Simple React components for Linkedin Button.
 
- - [Linkedin 日本語ドキュメント/website]()
+ - [Linkedin 日本語ドキュメント/website](http://uraway.hatenablog.com/entry/2016/02/08/000000)
 
 ## Install
 ```
