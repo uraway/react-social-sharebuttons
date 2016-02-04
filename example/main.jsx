@@ -12,10 +12,15 @@ class App extends React.Component {
     const feedlylayout = 'logo-green';
     const type = 2;
     const lang = 'en';
+    const hatenalayout = "standard-balloon";
 
     return (
       <div>
         <LinkedinButton counter="none" lang={lang} />
+        <FeedlyButton layout={feedlylayout} />
+        <HatenabookmarkButton layout={hatenalayout} />
+        <LINEButton image={lineimage} />
+        <GREEButton type={type} />
       </div>
     );
   }

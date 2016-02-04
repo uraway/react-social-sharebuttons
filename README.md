@@ -2,7 +2,41 @@
 
 Simple React components for Social Share Buttons.
 
-![](http://i.imgur.com/w15n9gA.png)
+![](http://i.imgur.com/uYVBG5W.png)
+
+```javascript
+import { LinkedinButton, FeedlyButton, HatenabookmarkButton, LINEButton, GREEButton } from 'react-social-sharebuttons';
+
+class App extends React.Component {
+  render() {
+    const url = 'http://uraway.hatenablog.com/';
+
+    const linkedincounter = "none";
+    const lang = 'en';
+
+    const feedurl = 'http://uraway.hatenablog.com/feed';
+    const feedlylayout = 'logo-green';
+
+    const hatenalayout = "standard-balloon";
+
+    const linetext = 'LINEで送る';
+    const lineimage = '20x20';
+
+    const greetype = 2;
+
+    return (
+      <div>
+        <LinkedinButton counter={linkedincounter} lang={lang} />
+        <FeedlyButton feedurl={feedurl} layout={feedlylayout} />
+        <HatenabookmarkButton layout={hatenalayout} />
+        <LINEButton image={lineimage} />
+        <GREEButton type={greetype} url={url} />
+      </div>
+    );
+  }
+}
+
+```
 
 ### Install
 ```
