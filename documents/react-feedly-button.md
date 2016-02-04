@@ -1,7 +1,7 @@
 # react-social-sharebuttons(Feedly)
 Simple React components for Feedly Button.
 
-- [Feedly 日本語ドキュメント/website](http://uraway.hatenablog.com/entry/2016/02/06/000000)
+- [Feedly Button 日本語ドキュメント/website](http://uraway.hatenablog.com/entry/2016/02/06/000000)
 
 ## Install
 ```
@@ -31,7 +31,7 @@ class App extends React.Component {
 The Feed URL you want users to subscribe. See more [info.](http://feedly.uservoice.com/knowledgebase/articles/206805-what-is-my-feed-url-)
 
 #### layout (Default is rectangle-volume-big)
-The button layout. Choose from the followings. (These sample images are twice larger than actual images.)
+The button layout. Choose from the following. (These sample images are twice larger than actual images.)
 
 ###### rectangle-volume-big
 ![](http://s3.feedly.com/img/follows/feedly-follow-rectangle-volume-big_2x.png)

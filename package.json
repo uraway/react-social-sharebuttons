@@ -1,6 +1,6 @@
 {
   "name": "react-social-sharebuttons",
-  "version": "0.3.3",
+  "version": "0.3.4",
   "description": "Simple React components for Social Share Buttons.",
   "main": "lib/main.js",
   "watch": {
@@ -29,6 +29,7 @@
     "linkedin",
     "linkedin-button",
     "LinkedIn",
+    "GREE",
     "social",
     "social-share"
   ],

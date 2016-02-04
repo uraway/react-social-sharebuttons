@@ -1,7 +1,7 @@
 # react-social-sharebuttons(HatenaBookmark)
 Simple React components for HatenaBookmark Button.
 
-- [HatenabookmarkButton 日本語ドキュメント/website](http://uraway.hatenablog.com/entry/2016/02/05/000000)
+- [Hatenabookmark Button 日本語ドキュメント/website](http://uraway.hatenablog.com/entry/2016/02/05/000000)
 
 ## Install
 ```
@@ -31,10 +31,10 @@ class App extends React.Component {
 The URL you want to share. The default value is the URL of the page where you put the button on.
 
 #### title (Optional)
-The title which display when the page is bookmarked.
+The title which displays when the page is bookmarked.
 
 #### layout
-The button layout. Choose from the followings.
+The button layout. Choose from the following.
 
 ###### default
 ![](http://i.imgur.com/AuKmG2o.png)
