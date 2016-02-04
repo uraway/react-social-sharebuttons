@@ -1,7 +1,7 @@
 # react-social-sharebuttons(Linkedin)
 Simple React components for Linkedin Button.
 
- - [Linkedin 日本語ドキュメント/website](http://uraway.hatenablog.com/entry/2016/02/08/000000)
+ - [Linkedin Button 日本語ドキュメント/website](http://uraway.hatenablog.com/entry/2016/02/08/000000)
 
 ## Install
 ```
@@ -16,9 +16,8 @@ class App extends React.Component {
   render(
     const url = "http://uraway.hatenablog.com";
     const counter = "top";
-    const lang = "en";
     return (
-      <LinkedinButton url={url} counter={counter} lang={lang} />
+      <LinkedinButton url={url} counter={counter} />
     );
   }
 }
@@ -30,7 +29,7 @@ class App extends React.Component {
 The URL you want to share. The default value is the URL of the page where you put the button on.
 
 #### counter (Required)
-The button counter type. Choose from followings.
+The button counter type. Choose from the following.
 
 ###### top
 ![](http://i.imgur.com/lc1i7Cw.png)
@@ -42,6 +41,7 @@ The button counter type. Choose from followings.
 ![](http://i.imgur.com/xSSJBK1.png)
 
 #### lang (Default is English.)
+You can specify the language.
 
 ###### 'ar'
 Arabic
