@@ -1,6 +1,8 @@
 # react-social-sharebuttons(GREE)
 Simple React components for GREE Button.
 
+- [GREE 日本語ドキュメント/website](http://uraway.hatenablog.com/entry/2016/02/07/000000)
+
 ## Install
 ```
 npm install --save react-social-sharebuttons
@@ -28,7 +30,23 @@ class App extends React.Component {
 The URL you want to share.
 
 #### type (Required, Number)
-The button layout type.
+Choose button layout type from followings.
+
+###### 0
+![](http://i.imgur.com/hcYxXQY.png)
+
+###### 1
+![](http://i.imgur.com/1gHRrFF.png)
+
+###### 2
+![](http://i.imgur.com/ENTedp8.png)
+
+###### 3
+![](http://i.imgur.com/QwIw039.png)
+
+###### 4
+![](http://i.imgur.com/CFQNkOr.png)
+
 
 
 ---

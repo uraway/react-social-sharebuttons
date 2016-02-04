@@ -10,15 +10,12 @@ class App extends React.Component {
     const url = 'http://uraway.hatenablog.com/';
     const feedurl = 'http://uraway.hatenablog.com/feed';
     const feedlylayout = 'logo-green';
-    const type = 1;
-    const lang = 'ar';
+    const type = 2;
+    const lang = 'en';
+
     return (
       <div>
-        <LinkedinButton lang={lang} />
-        <GREEButton url={url} type={type}/>
-        <FeedlyButton feedurl={feedurl} layout={feedlylayout} />
-        <HatenabookmarkButton />
-        <LINEButton text={linetext} image={lineimage} />
+        <LinkedinButton counter="none" lang={lang} />
       </div>
     );
   }
