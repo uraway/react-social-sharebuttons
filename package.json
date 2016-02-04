@@ -1,6 +1,6 @@
 {
   "name": "react-social-sharebuttons",
-  "version": "0.3.4",
+  "version": "1.0.0",
   "description": "Simple React components for Social Share Buttons.",
   "main": "lib/main.js",
   "watch": {

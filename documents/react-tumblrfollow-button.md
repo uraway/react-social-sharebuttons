@@ -25,7 +25,7 @@ class App extends React.Component {
 
 #### color (Default is blue)
 
-####### blue
+###### blue
 ![](http://i.imgur.com/iB9ReCq.png)
 
 ###### white
