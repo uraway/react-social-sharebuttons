@@ -74,11 +74,6 @@ Do you want any other social share buttons? Feel free to contanct with me or ope
 
 - [Pocket Button](https://github.com/uraway/react-social-sharebuttons/blob/master/documents/react-pocket-button.md)
 
-
-
-
-
-
 ### Contribution
 <iframe src="https://ghbtns.com/github-btn.html?user=uraway&repo=react-social-sharebuttons&type=fork&count=true&size=large" frameborder="0" scrolling="0" width="160px" height="30px"></iframe>
 
