@@ -23,95 +23,19 @@ class App extends React.Component {
 }
 ```
 
-## props
 
-#### url (Optional)
-The URL you want to share. The default value is the URL of the page where you put the button on.
+## Optional props
 
-#### counter (Required)
-The button counter type. Choose from the following.
+Add the following props as you wish.
 
-###### top
+Option|Description
+---|---
+`url`| The URL to share: `window.location` by default
+`counter`| Change the counter type of the button: none by default, `top` or `right`
+
+## Sample
+###### counter: top
 ![](http://i.imgur.com/lc1i7Cw.png)
 
-###### right
+###### counter: right
 ![](http://i.imgur.com/EE9Nqsn.png)
-
-###### none
-![](http://i.imgur.com/xSSJBK1.png)
-
-#### lang (Default is English.)
-You can specify the language.
-
-###### 'ar'
-Arabic
-
-###### 'zh_CN'
-Chinese - Simplified
-
-###### 'zh_TW'
-Cinese - Traditional
-
-###### 'cs'
-Czech
-
-###### 'da'
-Danish
-
-###### 'nl'
-Dutch
-
-###### 'fr'
-French
-
-###### 'de'
-German
-
-###### 'in'
-Indonesian
-
-###### 'it'
-Italian
-
-###### 'ja'
-Japanese
-
-###### 'ko'
-Korean
-
-###### 'ms'
-Malay
-
-###### 'no'
-Norwegian
-
-###### 'pl'
-Polish
-
-###### 'pt'
-Portuguese
-
-###### 'ro'
-Romanian
-
-###### 'ru'
-Russian
-
-###### 'es'
-Spanish
-
-###### 'sv'
-Swedish
-
-###### 'tl'
-Tagalog
-
-###### 'th'
-Thai
-
-###### 'tr'
-Turkish
-
-
----
-MIT licensed

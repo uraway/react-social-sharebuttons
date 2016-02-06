@@ -24,7 +24,7 @@ class App extends React.Component {
 ```
 
 ## Required props
-You must declare a value for each of the following props:
+You must declare a value for each of the following props.
 
 Option|Description
 ------|-----
@@ -37,5 +37,5 @@ Add the following props as you wish.
 
 Option|Description
 ---|---
-count|Show the watchers or forks count: none by default or `true`
+`count`|Show the watchers or forks count: none by default or `true`
 `size`|The button size: none by default or `large`

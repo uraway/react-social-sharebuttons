@@ -5,7 +5,9 @@
   "main": "lib/main.js",
   "watch": {
     "build": {
-      "patterns": ["src"],
+      "patterns": [
+        "src"
+      ],
       "extensions": "jsx"
     }
   },
@@ -73,6 +75,7 @@
     "eslint-plugin-react": "^3.16.1",
     "gulp": "^3.9.0",
     "mocha": "^2.4.5",
+    "npm-watch": "^0.1.1",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.7.0"
   },

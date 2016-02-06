@@ -21,35 +21,35 @@ class App extends React.Component {
 }
 ```
 
-## props
-#### channel (Required)
-Channel name or [ID](https://www.youtube.com/account_advanced).
 
-#### layout (Optinal)
-The button layout.
+## Required props
+You must declare a value for the following props.
 
-###### default
+Option|Description
+------|-----
+`channel`| YouTube channel or [ID](https://www.youtube.com/account_advanced)
+
+## Optional props
+
+Add the following props as you wish.
+
+Option|Description
+---|---
+`layout`|Choose the button layout: none by default or `full`
+`theme`|Choose the button theme: none by default or `dark`
+`count`|Show the subscriber count: `show` by default or `hidden`
+
+
+## Sample
+
+###### layout: default
 ![](http://i.imgur.com/KgwALRf.png)
 
-###### full
+###### layout: full
 ![](http://i.imgur.com/TncIZRp.png)
 
-#### theme (Optional)
-The button theme is triggered only if layout is set to full.
-
-###### default
-![](http://i.imgur.com/TncIZRp.png)
-
-###### dark
+###### theme: dark
 ![](http://i.imgur.com/bo3sepp.png)
-
-#### count (Optional)
-The subscriber count of the channel.
-###### default
-Shows the count.
-
-###### hidden
-Hides the count.
 
 ---
 MIT licensed
