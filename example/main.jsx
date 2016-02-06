@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { LINEButton, HatenabookmarkButton, FeedlyButton, GREEButton, LinkedinButton, TumblrPostButton, TumblrFollowButton, FacebookButton, TwitterTweetButton, TwitterFollowButton, TwitterHashtagButton, TwitterTweetToButton, PocketButton, YouTubeButton, GithubButton, GooglePlusButton } from '../lib/main.js';
+import { LINEButton, HatenabookmarkButton, FeedlyButton, GREEButton, LinkedinButton, TumblrPostButton, TumblrFollowButton, FacebookButton, TwitterTweetButton, TwitterFollowButton, TwitterHashtagButton, TwitterTweetToButton, PocketButton, YouTubeButton, GitHubButton, GooglePlusButton } from '../lib/main.js';
 
 class App extends React.Component {
   render() {
@@ -17,22 +17,13 @@ class App extends React.Component {
     return (
       <ul>
         <ol><GooglePlusButton /></ol>
-        <ol><GithubButton user="uraway" repo="react-social-sharebuttons" type="star" count size="large" /></ol>
-        <ol><YouTubeButton channel="GoogleDevelopers" count="show" /></ol>
-        <ol><PocketButton count="horizontal" /></ol>
-        <ol><TwitterTweetToButton user={user} /></ol>
-        <ol><TwitterHashtagButton hashtag={hashtag} text={text} /></ol>
-        <ol><TwitterFollowButton user={user} showCount /></ol>
-        <ol><TwitterTweetButton url={url} text={text} /></ol>
-        <ol><FacebookButton url={url} showFaces /></ol>
-        <ol><TumblrFollowButton tumblelog="staff" color="white"/></ol>
-        <ol><TumblrPostButton notes="top" color="blue" /></ol>
-        <ol><LinkedinButton /></ol>
-        <ol><FeedlyButton layout={feedlylayout} feedurl={feedurl} /></ol>
-        <ol><HatenabookmarkButton layout={hatenalayout} /></ol>
-        <ol><LINEButton image={lineimage} text={text} /></ol>
-        <ol><GREEButton /></ol>
-    </ul>
+        <ol><GitHubButton user="uraway" repo="react-social-sharebuttons"/></ol>
+        <ol><YouTubeButton channel="GoogleDevelopers"/></ol>
+        <ol><PocketButton /></ol>
+        <ol><TwitterTweetButton text={text}/></ol>
+        <ol><TwitterTweetToButton user={user} text={text}/></ol>
+
+      </ul>
     );
   }
 }
