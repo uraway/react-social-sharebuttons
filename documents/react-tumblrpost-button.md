@@ -21,31 +21,16 @@ class App extends React.Component {
 }
 ```
 
-## props
 
-#### color (Default is blue)
-Choose the button color from the following.
+## Optional props
 
-###### blue
-![](http://i.imgur.com/CITu5pS.png)
+Add the following props as you wish.
 
-###### white
-![](http://i.imgur.com/wXN8ouw.png)
+Option|Description
+---|---
+`color`| Change color of the button: `blue` by default, `white` or `black`
+`notes`| Change count style of the button: none by default, `top` or `right`
 
-###### black
-![](http://i.imgur.com/pnG2EAa.png)
-
-#### notes (Optional)
-Choose the count style from the following.
-
-###### none
-![](http://i.imgur.com/JDYtTvm.png)
-
-###### right
-![](http://i.imgur.com/0r03MDH.png)
-
-###### top
-![](http://i.imgur.com/wnK6xhR.png)
 
 ---
 MIT licensed

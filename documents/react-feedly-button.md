@@ -24,15 +24,22 @@ class App extends React.Component {
 }
 ```
 
-## props
+## Required props
+You must declare a value of the following props.
 
-#### feedurl (Required)
+Option|Description
+------|-----
+`feedurl`| The Feed URL you want users to subscribe. See more [info.](http://feedly.uservoice.com/knowledgebase/articles/206805-what-is-my-feed-url-)
 
-The Feed URL you want users to subscribe. See more [info.](http://feedly.uservoice.com/knowledgebase/articles/206805-what-is-my-feed-url-)
+## Optional props
 
-#### layout (Default is rectangle-volume-big)
-The button layout. Choose from the following. (These sample images are twice larger than actual images.)
+Add the following props as you wish.
 
+Option|Description
+---|---
+`layout`| Choose the layout from the following samples
+
+### Sample
 ###### rectangle-volume-big
 ![](http://s3.feedly.com/img/follows/feedly-follow-rectangle-volume-big_2x.png)
 
@@ -46,7 +53,7 @@ The button layout. Choose from the following. (These sample images are twice lar
 ![](http://s3.feedly.com/img/follows/feedly-follow-rectangle-flat-big_2x.png)
 
 ###### rectangle-flat-medium
-![](http://s3.feedly.com/img/follows/feedly-follow-rectangle-flat-medium_2x.pn)
+![](http://s3.feedly.com/img/follows/feedly-follow-rectangle-flat-medium_2x.png)
 
 ###### rectangle-flat-small
 ![](http://s3.feedly.com/img/follows/feedly-follow-rectangle-flat-small_2x.png)

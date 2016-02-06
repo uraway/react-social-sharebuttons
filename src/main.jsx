@@ -12,7 +12,7 @@ import TwitterHashtagButton from './TwitterHashtagButton';
 import TwitterTweetToButton from './TwitterTweetToButton';
 import PocketButton from './PocketButton';
 import YouTubeButton from './YouTubeButton';
-import GithubButton from './GithubButton';
+import GitHubButton from './GitHubButton';
 import GooglePlusButton from './GooglePlusButton';
 
 export {
@@ -30,6 +30,6 @@ export {
   TwitterTweetToButton,
   PocketButton,
   YouTubeButton,
-  GithubButton,
+  GitHubButton,
   GooglePlusButton,
 };

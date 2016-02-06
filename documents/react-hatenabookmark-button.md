@@ -24,25 +24,26 @@ class App extends React.Component {
 }
 ```
 
-## props
 
-#### url (Optional)
+## Optional props
 
-The URL you want to share. The default value is the URL of the page where you put the button on.
+Add the following props as you wish.
 
-#### title (Optional)
-The title which displays when the page is bookmarked.
+Option|Description
+---|---
+`url`| The URL to bookmark: `window.location` by default
+`title`| The title to display when bookmarked: none by default
+`layout`| The button layout: none by default, `simple-balloon` or `standard-balloon`
 
-#### layout
-The button layout. Choose from the following.
+## Sample
 
-###### default
+###### layout: default
 ![](http://i.imgur.com/AuKmG2o.png)
 
-###### simple-balloon
+###### layout: simple-balloon
 ![](http://i.imgur.com/0fHSBhG.png)
 
-###### standard-balloon
+###### layout: standard-balloon
 ![](http://i.imgur.com/2166oFC.png)
 
 ---

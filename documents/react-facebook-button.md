@@ -24,41 +24,30 @@ class App extends React.Component {
 }
 ```
 
-## props
-#### url (Optional)
-You can specify the URL to share. The default value is the URL of the page where you put the button on.
+Add the following props as you wish.
 
-#### layout (Default is standard)
-Choose the button layout from following.
+Option|Description
+---|---
+`url`| The URL to share: `window.location` by default
+`layout`| Choose the layout: `standard` by default, `box_count`, `button_count` or `button`
+`action`| Choose the button action: `like` by default or `recommended`
+`showFaces`| If it is enabled, users can see their friends' faces
+`share`| If it is enabled, the share button also appears
 
-###### standard
-![](http://i.imgur.com/i07brf4.png)
-
-###### box_count
-![](http://i.imgur.com/DeESW5M.png)
-
-###### button_count
-![](http://i.imgur.com/awc38iK.png)
-
-###### button
-![](http://i.imgur.com/D7B46lj.png)
-
-#### action (Defalt is like)
-Choose the button action type from the follwing.
-
-###### like
-![](http://i.imgur.com/9tlXeIA.png)
-
-###### recommended
-![](http://i.imgur.com/G5OwIdN.png)
-
-#### showFaces (boolean)
-If it is enabled users can see their friend's faces.
-
-#### share (boolean)
-If it is enabled share button also appear.
+## Sample
+###### layout: button_count, share: true
 
 ![](http://i.imgur.com/UMQZojI.png)
+
+###### layout: standard
+![](http://i.imgur.com/i07brf4.png)
+
+###### layout: button_count
+![](http://i.imgur.com/awc38iK.png)
+
+###### action: recommended
+![](http://i.imgur.com/G5OwIdN.png)
+
 
 
 ---

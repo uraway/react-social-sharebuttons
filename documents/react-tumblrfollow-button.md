@@ -21,21 +21,34 @@ class App extends React.Component {
 }
 ```
 
-## props
 
-#### color (Default is blue)
+## Required props
+You must declare a value for following props.
 
-###### blue
+Option|Description
+------|-----
+`thumblelog`| The tumblelog to share
+
+## Optional props
+
+Add the following props as you wish.
+
+Option|Description
+---|---
+`color`|Change color of the button: `blue` by `white` or `black`
+
+
+## Sample
+
+###### color: blue
 ![](http://i.imgur.com/iB9ReCq.png)
 
-###### white
+###### color: white
 ![](http://i.imgur.com/s1T1FZ1.png)
 
-###### black
+###### color: black
 ![](http://i.imgur.com/lQHx9Kp.png)
 
-#### tumblelog (Required)
-The blog you want users to follow.
 
 ---
 MIT licensed

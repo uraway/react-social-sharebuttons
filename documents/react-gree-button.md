@@ -24,10 +24,16 @@ class App extends React.Component {
 }
 ```
 
-## props
 
-#### url (Required)
-The URL you want to share.
+## Optional props
+
+Add the following props as you wish.
+
+Option|Description
+---|---
+`url`| The URL to share
+`type`| The button layout type:
+
 
 #### type (Required, Number)
 Choose the button layout type from the following.

@@ -21,17 +21,24 @@ class App extends React.Component {
 }
 ```
 
-## props
 
-#### count (Default is none)
+## Optional props
 
-####### none
+Add the following props as you wish.
+
+Option|Description
+---|---
+`count`|Show the count: none by default, `horizontal` or `vertical`
+
+## Sample
+
+###### count: none
 ![](http://i.imgur.com/Gll0mrs.png)
 
-###### horizontal
+###### count: horizontal
 ![](http://i.imgur.com/wmgrpmV.png)
 
-###### vertical
+###### count: vertical
 ![](http://i.imgur.com/Cbl4cec.png)
 
 ---

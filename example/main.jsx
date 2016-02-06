@@ -17,8 +17,8 @@ class App extends React.Component {
     return (
       <ul>
         <ol><GooglePlusButton /></ol>
-        <ol><GithubButton user="uraway" repo="react-social-sharebuttons" type="star" count /></ol>
-        <ol><YouTubeButton channel="GoogleDevelopers"/></ol>
+        <ol><GithubButton user="uraway" repo="react-social-sharebuttons" type="star" count size="large" /></ol>
+        <ol><YouTubeButton channel="GoogleDevelopers" count="show" /></ol>
         <ol><PocketButton count="horizontal" /></ol>
         <ol><TwitterTweetToButton user={user} /></ol>
         <ol><TwitterHashtagButton hashtag={hashtag} text={text} /></ol>
@@ -27,12 +27,12 @@ class App extends React.Component {
         <ol><FacebookButton url={url} showFaces /></ol>
         <ol><TumblrFollowButton tumblelog="staff" color="white"/></ol>
         <ol><TumblrPostButton notes="top" color="blue" /></ol>
-        <ol><LinkedinButton counter="none" /></ol>
+        <ol><LinkedinButton /></ol>
         <ol><FeedlyButton layout={feedlylayout} feedurl={feedurl} /></ol>
         <ol><HatenabookmarkButton layout={hatenalayout} /></ol>
         <ol><LINEButton image={lineimage} text={text} /></ol>
-        <ol><GREEButton type={2} /></ol>
-      </ul>
+        <ol><GREEButton /></ol>
+    </ul>
     );
   }
 }

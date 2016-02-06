@@ -6,8 +6,8 @@ export default class GREEButton extends React.Component {
   }
 
   static PropTypes = {
-    url: React.PropTypes.string.isRequired,
-    type: React.PropTypes.number.isRequired,
+    url: React.PropTypes.string,
+    type: React.PropTypes.number,
   };
 
   render() {

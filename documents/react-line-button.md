@@ -25,32 +25,32 @@ class App extends React.Component {
 }
 ```
 
-## props
 
-#### text (Optinal)
+## Optional props
 
-The text you want to share. You can only specify the page title and page URL.
+Add the following props as you wish.
 
-- [Guideline](https://media.line.me/guideline/en/)
+Option|Description
+---|---
+`text`| The text to share
+`image`| Change the style of the button. You can only choose `20x20` by default, `30x30`, `36x60`, `40x40` or `82x20`
 
-#### image (default is 20x20)
+## Sample
 
-Specify size of the image you want to use as LINE button.
+###### image: 20x20
+![](http://i.imgur.com/sS34ddy.png)
 
-##### 20x20
-![20x20](../images/line/linebutton_20x20.png)
+###### image: 30x30
+![](http://i.imgur.com/fa0OuSx.png)
 
-##### 30x30
-![30x30](../images/line/linebutton_30x30.png)
+###### image: 36x60
+![](http://i.imgur.com/oyrLd1n.png)
 
-##### 36x60
-![36x60](../images/line/linebutton_36x60.png)
+###### image: 40x40
+![](http://i.imgur.com/SvYu1fi.png)
 
-##### 40x40
-![40x40](../images/line/linebutton_40x40.png)
-
-##### 82x20
-![82x20](../images/line/linebutton_82x20.png)
+###### image: 82x20
+![](http://i.imgur.com/ewyvd7t.png)
 
 ---
 MIT licensed
