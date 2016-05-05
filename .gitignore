@@ -1,3 +1,5 @@
 node_modules
+example/build.js
+lib
 
-*.log
+npm-debug.log
