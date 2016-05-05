@@ -6,17 +6,17 @@ import watchify from 'watchify';
 import source from 'vinyl-source-stream';
 
 function compile(watch) {
-  var bundler = watchify(browserify('./main.jsx', { debug: true }).transform(babelify, {presets: ["es2015", "react"]}));
+  const bundler = watchify(browserify('./main.jsx', { debug: true }).transform(babelify, { presets: ['es2015', 'react'] }));
 
   function rebundle() {
     bundler.bundle()
-      .on('error', function(err) { console.error(err); this.emit('end'); })
+      .on('error', (err) => { console.error(err); this.emit('end'); })
       .pipe(source('build.js'))
       .pipe(gulp.dest('./'));
   }
 
   if (watch) {
-    bundler.on('update', function() {
+    bundler.on('update', () => {
       console.log('bundling js...');
       rebundle();
     });
@@ -27,7 +27,7 @@ function compile(watch) {
 
 function watch() {
   return compile(true);
-};
+}
 
 gulp.task('build', function() { return compile(); });
 
@@ -47,7 +47,7 @@ gulp.task('reload', () => {
 });
 
 gulp.task('default', ['browserSync', 'watch'], () => {
-  gulp.watch('./index.html',  ['reload']);
+  gulp.watch('./index.html', ['reload']);
   gulp.watch('./build.js', ['reload']);
   gulp.watch('../src/*.*', ['reload']);
 });
