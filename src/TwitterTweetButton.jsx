@@ -49,7 +49,6 @@ export default class TwitterTweetButton extends React.Component {
 TwitterTweetButton.propTypes = {
   url: React.PropTypes.string,
   text: React.PropTypes.string,
-  via: React.PropTypes.string,
   hashtags: React.PropTypes.string,
   user: React.PropTypes.string
 };
@@ -57,7 +56,6 @@ TwitterTweetButton.propTypes = {
 TwitterTweetButton.defaultProps = {
   url: window.url,
   text: '',
-  via: '',
   hashtags: '',
   user: ''
 };
