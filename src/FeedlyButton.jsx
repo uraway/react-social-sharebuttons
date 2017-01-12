@@ -5,7 +5,7 @@ export default class FeedlyButton extends React.Component {
   constructor(props) {
     super(props);
     this.state = ({
-      layout: 'http://s3.feedly.com/img/follows/feedly-follow-rectangle-volume-big_2x.png',
+      layout: '',
       width: '56px',
       height: '131px',
     });
@@ -14,11 +14,6 @@ export default class FeedlyButton extends React.Component {
   componentDidMount() {
     this.layoutSet();
   }
-
-  static PropTypes = {
-    feedurl: React.PropTypes.string,
-    layout: React.PropTypes.string,
-  };
 
   layoutSet() {
     if (this.props.layout === 'rectangle-volume-big') {
@@ -117,19 +112,26 @@ export default class FeedlyButton extends React.Component {
         height: '28px',
         width: '28px',
       });
-
     }
   }
 
   render() {
     return (
-      <a href={'http://cloud.feedly.com/#subscription%2Ffeed%2F' + encodeURIComponent(this.props.feedurl)} target="blank">
-        <img src={this.state.layout} alt="follow us in feedly" style={{ width:this.state.width, height:this.state.height }}/>
+      <a href={`http://cloud.feedly.com/#subscription%2Ffeed%2F${encodeURIComponent(this.props.feedurl)}`} target="blank">
+        <img src={this.state.layout} alt="follow us in feedly" style={{ width: this.state.width, height: this.state.height }} />
       </a>
     );
   }
-
 }
+
+FeedlyButton.propTypes = {
+  feedurl: React.PropTypes.string.isRequired,
+  layout: React.PropTypes.string,
+};
+
+FeedlyButton.defaultProps = {
+  layout: 'rectangle-volume-big'
+};
 
 /*
 encoded
