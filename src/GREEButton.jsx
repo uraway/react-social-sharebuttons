@@ -1,19 +1,10 @@
 import React from 'react';
 
 export default class GREEButton extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  static PropTypes = {
-    url: React.PropTypes.string,
-    type: React.PropTypes.number,
-  };
-
   render() {
     return (
       <iframe
-        src={'http://share.gree.jp/share?url=' + encodeURIComponent(this.props.url) + '&type=' + this.props.type + '&height=20'}
+        src={`http://share.gree.jp/share?url=${encodeURIComponent(this.props.url)}&type=${this.props.type}&height=20`}
         scrolling="no"
         frameBorder="0"
         marginWidth="0"
@@ -24,4 +15,13 @@ export default class GREEButton extends React.Component {
     );
   }
 }
-/* encodeURIComponent */
+
+GREEButton.propTypes = {
+  url: React.PropTypes.string,
+  type: React.PropTypes.number,
+};
+
+GREEButton.defaultProps = {
+  url: window.url,
+  type: 0
+};
