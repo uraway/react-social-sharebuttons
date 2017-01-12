@@ -39,7 +39,7 @@ export default class TwitterTweetToButton extends React.Component {
     return (
       <a
         ref="twitterbutton"
-        href={"https://twitter.com/intent/tweet?screen_name=" + this.props.user + "&text=" this.props.text}
+        href={'https://twitter.com/intent/tweet?screen_name=' + this.props.user + '&text=' + this.props.text}
         className="twitter-mention-button"
       >
         Tweet to {this.props.user}
