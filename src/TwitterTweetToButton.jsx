@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import ReactDOM from 'react-dom';
 
 export default class TwitterTweetToButton extends React.Component {
   constructor(props) {
@@ -13,14 +12,14 @@ export default class TwitterTweetToButton extends React.Component {
     }
 
     if (typeof twttr === 'undefined') {
-      const twitterbutton = ReactDOM.findDOMNode(this.refs.twitterbutton);
+      const twitterbutton = this.node;
       const twitterscript = document.createElement('script');
       twitterscript.src = '//platform.twitter.com/widgets.js';
       twitterscript.async = true;
       twitterscript.id = 'twitter-wjs';
       twitterbutton.parentNode.appendChild(twitterscript);
     } else {
-      twttr.widgets.load();
+      twttr.widgets.load(); // eslint-disable-line
     }
 
     this.initialized();
@@ -30,16 +29,11 @@ export default class TwitterTweetToButton extends React.Component {
     this.setState({ initialized: true });
   }
 
-  static PropTypes = {
-    user: PropTypes.string.isRequired,
-    text: PropTypes.text,
-  };
-
   render() {
     return (
       <a
-        ref="twitterbutton"
-        href={'https://twitter.com/intent/tweet?screen_name=' + this.props.user + '&text=' + this.props.text}
+        ref={node => this.node = node}
+        href={`https://twitter.com/intent/tweet?screen_name=${this.props.user}&text=${this.props.text}`}
         className="twitter-mention-button"
       >
         Tweet to {this.props.user}
@@ -47,6 +41,15 @@ export default class TwitterTweetToButton extends React.Component {
     );
   }
 }
+
+TwitterTweetToButton.propTypes = {
+  user: PropTypes.string.isRequired,
+  text: PropTypes.string,
+};
+
+TwitterTweetToButton.defaultProps = {
+  text: ''
+};
 
 /*
 <a href="https://twitter.com/intent/tweet?screen_name=uraway_&text=text" class="twitter-mention-button">Tweet to @uraway_</a>
