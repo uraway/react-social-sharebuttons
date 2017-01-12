@@ -12,8 +12,7 @@ import TwitterHashtagButton from './TwitterHashtagButton';
 import TwitterTweetToButton from './TwitterTweetToButton';
 import PocketButton from './PocketButton';
 import YouTubeButton from './YouTubeButton';
-import GitHubButton from './GitHubButton';
-import GooglePlusButton from './GooglePlusButton';
+import GithubButton from './GithubButton';
 
 export {
   LINEButton,
@@ -30,6 +29,5 @@ export {
   TwitterTweetToButton,
   PocketButton,
   YouTubeButton,
-  GitHubButton,
-  GooglePlusButton,
+  GithubButton,
 };
