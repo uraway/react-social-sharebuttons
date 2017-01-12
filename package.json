@@ -70,10 +70,10 @@
     "gulp": "^3.9.0",
     "npm-watch": "^0.1.1",
     "vinyl-source-stream": "^1.1.0",
-    "watchify": "^3.7.0"
+    "watchify": "^3.7.0",
+    "react-dom": "^15.0.2"
   },
   "dependencies": {
-    "react": "^15.0.2",
-    "react-dom": "^15.0.2"
+    "react": "^15.0.2"
   }
 }
