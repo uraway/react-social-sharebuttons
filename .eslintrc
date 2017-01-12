@@ -1,6 +1,11 @@
 {
   "parser": "babel-eslint",
   "extends": "airbnb",
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true,
+  },
   "rules": {
     "comma-dangle": 0,
     "new-cap": 0,
@@ -13,6 +18,9 @@
     }],
     "max-len": 0,
     "no-console": 0,
+    "no-return-assign": 0,
+    "react/prefer-stateless-function": 0,
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": ["example/**.*"]}],
     no-param-reassign: [2, { "props": false }]
   }
 }
