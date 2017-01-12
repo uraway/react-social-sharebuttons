@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import ReactDOM from 'react-dom';
 
 export default class TwitterHashtagButton extends React.Component {
   constructor(props) {
@@ -13,14 +12,14 @@ export default class TwitterHashtagButton extends React.Component {
     }
 
     if (typeof twttr === 'undefined') {
-      const twitterbutton = ReactDOM.findDOMNode(this.refs.twitterbutton);
+      const twitterbutton = this.node;
       const twitterscript = document.createElement('script');
       twitterscript.src = '//platform.twitter.com/widgets.js';
       twitterscript.async = true;
       twitterscript.id = 'twitter-wjs';
       twitterbutton.parentNode.appendChild(twitterscript);
     } else {
-      twttr.widgets.load();
+      twttr.widgets.load(); // eslint-disable-line
     }
 
     this.initialized();
@@ -30,16 +29,11 @@ export default class TwitterHashtagButton extends React.Component {
     this.setState({ initialized: true });
   }
 
-  static PropTypes = {
-    hashtag: PropTypes.string,
-    text: PropTypes.text,
-  };
-
   render() {
     return (
       <a
-        ref="twitterbutton"
-        href={"https://twitter.com/intent/tweet?button_hashtag="+ this.props.hashtag + "&text=" + this.props.text}
+        ref={node => this.node = node}
+        href={`https://twitter.com/intent/tweet?button_hashtag=${this.props.hashtag}&text=${this.props.text}`}
         className="twitter-hashtag-button"
       >
       Tweet {this.props.hashtag}
@@ -47,6 +41,15 @@ export default class TwitterHashtagButton extends React.Component {
     );
   }
 }
+
+TwitterHashtagButton.propTypes = {
+  hashtag: PropTypes.string.isRequired,
+  text: PropTypes.string,
+};
+
+TwitterHashtagButton.defaultProps = {
+  text: ''
+};
 
 /*
 <a href="https://twitter.com/intent/tweet?button_hashtag=TwitterStories&text=text" class="twitter-hashtag-button" data-related="uraway_">Tweet #TwitterStories</a>
