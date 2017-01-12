@@ -130,7 +130,7 @@ FeedlyButton.propTypes = {
 };
 
 FeedlyButton.defaultProps = {
-  layout: 'rectangle-volume-big'
+  layout: 'rectangle-volume-small'
 };
 
 /*
