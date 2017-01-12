@@ -14,7 +14,8 @@
   "scripts": {
     "test": "mocha test/test.js",
     "build": "babel src --out-dir lib",
-    "watch": "npm-watch"
+    "watch": "npm-watch",
+    "lint": "eslint ./"
   },
   "keywords": [
     "react",
