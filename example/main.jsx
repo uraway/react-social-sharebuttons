@@ -16,7 +16,7 @@ import {
   TwitterTweetToButton,
   PocketButton,
   YouTubeButton,
-  GitHubButton,
+  GithubButton,
 } from '../lib/main';
 
 class App extends React.Component {
@@ -37,7 +37,7 @@ class App extends React.Component {
         <ol><TwitterFollowButton user="uraway_" /></ol>
         <ol><PocketButton /></ol>
         <ol><YouTubeButton channel="GoogleDevelopers" /></ol>
-        <ol><GitHubButton user="uraway" repo="react-social-sharebuttons" /></ol>
+        <ol><GithubButton user="uraway" repo="react-social-sharebuttons" /></ol>
       </ul>
     );
   }
