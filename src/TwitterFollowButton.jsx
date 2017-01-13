@@ -1,5 +1,4 @@
 import React, { PropTypes } from 'react';
-import ReactDOM from 'react-dom';
 
 export default class TwitterFollowButton extends React.Component {
   constructor(props) {
@@ -13,14 +12,14 @@ export default class TwitterFollowButton extends React.Component {
     }
 
     if (typeof twttr === 'undefined') {
-      const twitterbutton = ReactDOM.findDOMNode(this.refs.twitterbutton);
+      const twitterbutton = this.node;
       const twitterscript = document.createElement('script');
       twitterscript.src = '//platform.twitter.com/widgets.js';
       twitterscript.async = true;
       twitterscript.id = 'twitter-wjs';
       twitterbutton.parentNode.appendChild(twitterscript);
     } else {
-      twttr.widgets.load();
+      twttr.widgets.load(); // eslint-disable-line
     }
 
     this.initialized();
@@ -30,16 +29,11 @@ export default class TwitterFollowButton extends React.Component {
     this.setState({ initialized: true });
   }
 
-  static PropTypes = {
-    url: PropTypes.string,
-    showCount: PropTypes.bool,
-  };
-
   render() {
     return (
       <a
-        ref="twitterbutton"
-        href={"https://twitter.com/" + this.props.user}
+        ref={node => this.node = node}
+        href={`https://twitter.com/${this.props.user}`}
         className="twitter-follow-button"
         data-show-count={this.props.showCount}
       >
@@ -48,6 +42,15 @@ export default class TwitterFollowButton extends React.Component {
     );
   }
 }
+
+TwitterFollowButton.propTypes = {
+  user: PropTypes.string.isRequired,
+  showCount: PropTypes.bool,
+};
+
+TwitterFollowButton.defaultProps = {
+  showCount: true
+};
 
 /*
 <a href="https://twitter.com/uraway_" class="twitter-follow-button" data-show-count="false">Follow @uraway_</a>

@@ -1,28 +1,43 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { LINEButton, HatenabookmarkButton, FeedlyButton, GREEButton, LinkedinButton, TumblrPostButton, TumblrFollowButton, FacebookButton, TwitterTweetButton, TwitterFollowButton, TwitterHashtagButton, TwitterTweetToButton, PocketButton, YouTubeButton, GitHubButton, GooglePlusButton } from '../lib/main.js';
+import {
+  LINEButton,
+  HatenabookmarkButton,
+  FeedlyButton,
+  GREEButton,
+  LinkedinButton,
+  TumblrPostButton,
+  TumblrFollowButton,
+  FacebookButton,
+  TwitterTweetButton,
+  TwitterFollowButton,
+  TwitterHashtagButton,
+  TwitterTweetToButton,
+  PocketButton,
+  YouTubeButton,
+  GithubButton,
+} from '../lib/main';
 
 class App extends React.Component {
   render() {
-    const text = 'awesome text';
-    const lineimage = '20x20';
-    const url = 'http://uraway.hatenablog.com/';
-    const feedurl = 'http://uraway.hatenablog.com/feed';
-    const feedlylayout = 'logo-green';
-    const hatenalayout = 'standard-balloon';
-    const user = 'uraway_';
-    const hashtag = 'github';
-
     return (
       <ul>
-        <ol><GooglePlusButton /></ol>
-        <ol><GitHubButton user="uraway" repo="react-social-sharebuttons"/></ol>
-        <ol><YouTubeButton channel="GoogleDevelopers"/></ol>
+        <ol><LINEButton /></ol>
+        <ol><HatenabookmarkButton /></ol>
+        <ol><FeedlyButton feedurl="http://uraway.hatenablog.com/feed" /></ol>
+        <ol><GREEButton /></ol>
+        <ol><LinkedinButton /></ol>
+        <ol><TumblrPostButton /></ol>
+        <ol><TumblrFollowButton tumblelog="uraway" /></ol>
+        <ol><FacebookButton /></ol>
+        <ol><TwitterTweetButton text="awesome text" /></ol>
+        <ol><TwitterTweetToButton user="uraway_" text="awesome text" /></ol>
+        <ol><TwitterHashtagButton hashtag="React" /></ol>
+        <ol><TwitterFollowButton user="uraway_" /></ol>
         <ol><PocketButton /></ol>
-        <ol><TwitterTweetButton text={text}/></ol>
-        <ol><TwitterTweetToButton user={user} text={text}/></ol>
-
+        <ol><YouTubeButton channel="GoogleDevelopers" /></ol>
+        <ol><GithubButton user="uraway" repo="react-social-sharebuttons" /></ol>
       </ul>
     );
   }

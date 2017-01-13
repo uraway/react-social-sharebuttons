@@ -10,7 +10,7 @@ function compile(watch) {
 
   function rebundle() {
     bundler.bundle()
-      .on('error', (err) => { console.error(err); this.emit('end'); })
+      .on('error', (err) => { console.error(err); })
       .pipe(source('build.js'))
       .pipe(gulp.dest('./'));
   }
@@ -29,9 +29,9 @@ function watch() {
   return compile(true);
 }
 
-gulp.task('build', function() { return compile(); });
+gulp.task('build', () => compile());
 
-gulp.task('watch', function() { return watch(); });
+gulp.task('watch', () => watch());
 
 gulp.task('browserSync', () => {
   browserSync({

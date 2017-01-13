@@ -1,5 +1,4 @@
-import React, { PropTypes } from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react';
 
 export default class YouTubeButton extends React.Component {
   constructor(props) {
@@ -12,7 +11,7 @@ export default class YouTubeButton extends React.Component {
       return;
     }
 
-    const youtubebutton = ReactDOM.findDOMNode(this.refs.youtubebutton);
+    const youtubebutton = this.node;
     const youtubescript = document.createElement('script');
     youtubescript.src = 'https://apis.google.com/js/platform.js';
     youtubebutton.parentNode.appendChild(youtubescript);
@@ -24,17 +23,10 @@ export default class YouTubeButton extends React.Component {
     this.setState({ initialized: true });
   }
 
-  static PropTypes = {
-    channel: PropTypes.string.isRequired,
-    layout: PropTypes.string,
-    theme: PropTypes.string,
-    count: PropTypes.string,
-  };
-
   render() {
     return (
       <div
-        ref="youtubebutton"
+        ref={node => this.node = node}
         className="g-ytsubscribe"
         data-channel={this.props.channel}
         data-layout={this.props.layout}
@@ -44,3 +36,16 @@ export default class YouTubeButton extends React.Component {
     );
   }
 }
+
+YouTubeButton.propTypes = {
+  channel: React.PropTypes.string.isRequired,
+  layout: React.PropTypes.string,
+  theme: React.PropTypes.string,
+  count: React.PropTypes.string,
+};
+
+YouTubeButton.defaultProps = {
+  layout: '',
+  theme: '',
+  count: ''
+};

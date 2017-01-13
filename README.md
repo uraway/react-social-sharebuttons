@@ -2,7 +2,7 @@
 
 Simple React components for Social Share Buttons.
 
-![](http://i.imgur.com/GqTcqLS.png)
+![](http://i.imgur.com/bNa17js.png)
 
 ### Install
 ```

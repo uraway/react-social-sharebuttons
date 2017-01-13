@@ -1,14 +1,10 @@
 import React from 'react';
 
 export default class GithubButton extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <iframe
-        src="https://ghbtns.com/github-btn.html?user=uraway&repo=react-social-sharebuttons&type=star&count=true&size=large"
+        src={`https://ghbtns.com/github-btn.html?user=${this.props.user}&repo=${this.props.repo}&type=${this.props.type}&count=${this.props.count}&size=${this.props.size}`}
         frameBorder="0"
         scrolling="0"
         width="160px"
@@ -17,3 +13,17 @@ export default class GithubButton extends React.Component {
     );
   }
 }
+
+GithubButton.propTypes = {
+  user: React.PropTypes.string.isRequired,
+  repo: React.PropTypes.string.isRequired,
+  type: React.PropTypes.string,
+  count: React.PropTypes.string,
+  size: React.PropTypes.string
+};
+
+GithubButton.defaultProps = {
+  type: 'star',
+  count: 'true',
+  size: 'small'
+};

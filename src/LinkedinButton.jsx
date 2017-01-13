@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 export default class LinkedinButton extends React.Component {
   constructor(props) {
@@ -12,7 +11,7 @@ export default class LinkedinButton extends React.Component {
       return;
     }
 
-    const linkedinbutton = ReactDOM.findDOMNode(this.refs.linkedinbutton);
+    const linkedinbutton = this.node;
     const linkedinscript = document.createElement('script');
     linkedinscript.src = '//platform.linkedin.com/in.js';
     linkedinscript.type = 'text/javascript';
@@ -21,12 +20,6 @@ export default class LinkedinButton extends React.Component {
 
     this.initialized();
   }
-
-  static PropTypes = {
-    url: React.PropTypes.string,
-    counter: React.PropTypes.string,
-    lang: React.PropTypes.string,
-  };
 
   initialized() {
     this.setState({ initialized: true });
@@ -87,7 +80,7 @@ export default class LinkedinButton extends React.Component {
   render() {
     return (
       <script
-        ref="linkedinbutton"
+        ref={node => this.node = node}
         type="IN/Share"
         data-url={this.props.url}
         data-counter={this.props.counter}
@@ -95,3 +88,15 @@ export default class LinkedinButton extends React.Component {
     );
   }
 }
+
+LinkedinButton.propTypes = {
+  url: React.PropTypes.string,
+  counter: React.PropTypes.string,
+  lang: React.PropTypes.string,
+};
+
+LinkedinButton.defaultProps = {
+  url: window.url,
+  counter: '',
+  lang: 'ja'
+};

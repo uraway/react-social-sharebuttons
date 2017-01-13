@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 export default class FacebookButton extends React.Component {
   constructor(props) {
@@ -13,13 +12,13 @@ export default class FacebookButton extends React.Component {
     }
 
     if (typeof FB === 'undefined') {
-      const facebookbutton = ReactDOM.findDOMNode(this.refs.facebookbutton);
+      const facebookbutton = this.node;
       const facebookscript = document.createElement('script');
       facebookscript.src = '//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5';
       facebookscript.id = 'facebook-jssdk';
       facebookbutton.parentNode.appendChild(facebookscript);
     } else {
-      FB.XFBML.parse();
+      FB.XFBML.parse(); // eslint-disable-line
     }
 
     this.initialized();
@@ -29,18 +28,10 @@ export default class FacebookButton extends React.Component {
     this.setState({ initialized: true });
   }
 
-  static PropTypes = {
-    url: React.PropTypes.string,
-    layout: React.PropTypes.string,
-    action: React.PropTypes.string,
-    showFaces: React.PropTypes.bool,
-    share: React.PropTypes.bool,
-  };
-
   render() {
     return (
       <div
-        ref="facebookbutton"
+        ref={node => this.node = node}
         className="fb-like"
         data-href={this.props.url}
         data-layout={this.props.layout}
@@ -51,6 +42,22 @@ export default class FacebookButton extends React.Component {
     );
   }
 }
+
+FacebookButton.propTypes = {
+  url: React.PropTypes.string,
+  layout: React.PropTypes.string,
+  action: React.PropTypes.string,
+  showFaces: React.PropTypes.bool,
+  share: React.PropTypes.bool,
+};
+
+FacebookButton.defaultProps = {
+  url: window.url,
+  layout: '',
+  action: '',
+  showFaces: false,
+  share: false
+};
 
 /*
 <div id="fb-root"></div>
