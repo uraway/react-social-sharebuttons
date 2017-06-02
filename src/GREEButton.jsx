@@ -22,6 +22,6 @@ GREEButton.propTypes = {
 };
 
 GREEButton.defaultProps = {
-  url: window.url,
+  url: (typeof window !== 'undefined' ? window.url : ''),
   type: 0
 };
