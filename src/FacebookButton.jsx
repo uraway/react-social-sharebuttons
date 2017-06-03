@@ -52,7 +52,7 @@ FacebookButton.propTypes = {
 };
 
 FacebookButton.defaultProps = {
-  url: window.url,
+  url: (typeof window !== 'undefined' ? window.url : ''),
   layout: '',
   action: '',
   showFaces: false,

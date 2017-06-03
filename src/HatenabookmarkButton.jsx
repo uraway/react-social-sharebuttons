@@ -52,7 +52,7 @@ HatenabookmarkButton.propTypes = {
 };
 
 HatenabookmarkButton.defaultProps = {
-  url: window.url,
+  url: (typeof window !== 'undefined' ? window.url : ''),
   layout: '',
   title: ''
 };

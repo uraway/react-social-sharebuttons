@@ -54,7 +54,7 @@ TwitterTweetButton.propTypes = {
 };
 
 TwitterTweetButton.defaultProps = {
-  url: window.url,
+  url: (typeof window !== 'undefined' ? window.url : ''),
   text: '',
   hashtags: '',
   user: ''

@@ -96,7 +96,7 @@ LinkedinButton.propTypes = {
 };
 
 LinkedinButton.defaultProps = {
-  url: window.url,
+  url: (typeof window !== 'undefined' ? window.url : ''),
   counter: '',
   lang: 'ja'
 };
