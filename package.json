@@ -15,7 +15,8 @@
     "test": "mocha test/test.js",
     "build": "babel src --out-dir lib",
     "watch": "npm-watch",
-    "lint": "eslint --ext .js,.jsx ./"
+    "lint": "eslint --ext .js,.jsx ./",
+    "lint:fix": "eslint --ext .js,.jsx ./ --fix"
   },
   "keywords": [
     "react",
@@ -65,12 +66,12 @@
     "babelify": "^7.2.0",
     "browser-sync": "^2.11.1",
     "browserify": "^13.0.0",
-    "eslint": "^3.13.1",
-    "eslint-config-airbnb": "^14.0.0",
+    "eslint": "4.5.0",
+    "eslint-config-airbnb": "15.1.0",
     "eslint-loader": "^1.2.1",
     "eslint-plugin-import": "^2.2.0",
-    "eslint-plugin-jsx-a11y": "^3.0.2",
-    "eslint-plugin-react": "^6.9.0",
+    "eslint-plugin-jsx-a11y": "^5.1.1",
+    "eslint-plugin-react": "^7.1.0",
     "gulp": "^3.9.0",
     "npm-watch": "^0.1.1",
     "react-dom": "^15.0.2",
