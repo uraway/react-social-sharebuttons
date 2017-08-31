@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-export default class FacebookButton extends React.Component {
+export default class FacebookButton extends Component {
   constructor(props) {
     super(props);
     this.state = ({ initialized: false });
@@ -44,11 +45,11 @@ export default class FacebookButton extends React.Component {
 }
 
 FacebookButton.propTypes = {
-  url: React.PropTypes.string,
-  layout: React.PropTypes.string,
-  action: React.PropTypes.string,
-  showFaces: React.PropTypes.bool,
-  share: React.PropTypes.bool,
+  url: PropTypes.string,
+  layout: PropTypes.string,
+  action: PropTypes.string,
+  showFaces: PropTypes.bool,
+  share: PropTypes.bool,
 };
 
 FacebookButton.defaultProps = {

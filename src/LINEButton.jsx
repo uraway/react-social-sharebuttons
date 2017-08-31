@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-export default class LINEButton extends React.Component {
+export default class LINEButton extends Component {
   constructor(props) {
     super(props);
     this.state = ({
@@ -57,8 +58,8 @@ export default class LINEButton extends React.Component {
 }
 
 LINEButton.propTypes = {
-  image: React.PropTypes.string,
-  text: React.PropTypes.string,
+  image: PropTypes.string,
+  text: PropTypes.string,
 };
 
 LINEButton.defaultProps = {

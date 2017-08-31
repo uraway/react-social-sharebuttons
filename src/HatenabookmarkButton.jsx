@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-export default class HatenabookmarkButton extends React.Component {
+export default class HatenabookmarkButton extends Component {
   constructor(props) {
     super(props);
     this.state = ({ initialized: false });
@@ -46,9 +47,9 @@ export default class HatenabookmarkButton extends React.Component {
 }
 
 HatenabookmarkButton.propTypes = {
-  url: React.PropTypes.string,
-  layout: React.PropTypes.string,
-  title: React.PropTypes.string,
+  url: PropTypes.string,
+  layout: PropTypes.string,
+  title: PropTypes.string,
 };
 
 HatenabookmarkButton.defaultProps = {

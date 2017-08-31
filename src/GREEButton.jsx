@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-export default class GREEButton extends React.Component {
+export default class GREEButton extends Component {
   render() {
     return (
       <iframe
@@ -18,8 +19,8 @@ export default class GREEButton extends React.Component {
 }
 
 GREEButton.propTypes = {
-  url: React.PropTypes.string,
-  type: React.PropTypes.number,
+  url: PropTypes.string,
+  type: PropTypes.number,
 };
 
 GREEButton.defaultProps = {
