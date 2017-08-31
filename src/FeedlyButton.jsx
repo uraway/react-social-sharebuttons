@@ -1,7 +1,6 @@
 import React from 'react';
 
 export default class FeedlyButton extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = ({

@@ -9,6 +9,7 @@ export default class TumblrFollowButton extends Component {
   render() {
     return (
       <iframe
+        title="tumblr-follow-button"
         className="btn"
         frameBorder="0"
         scrolling="no"

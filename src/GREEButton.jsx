@@ -4,6 +4,7 @@ export default class GREEButton extends React.Component {
   render() {
     return (
       <iframe
+        title="gree-button"
         src={`http://share.gree.jp/share?url=${encodeURIComponent(this.props.url)}&type=${this.props.type}&height=20`}
         scrolling="no"
         frameBorder="0"
