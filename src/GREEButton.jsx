@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-export default class GREEButton extends React.Component {
+export default class GREEButton extends Component {
   render() {
     return (
       <iframe
+        title="gree-button"
         src={`http://share.gree.jp/share?url=${encodeURIComponent(this.props.url)}&type=${this.props.type}&height=20`}
         scrolling="no"
         frameBorder="0"
@@ -17,8 +19,8 @@ export default class GREEButton extends React.Component {
 }
 
 GREEButton.propTypes = {
-  url: React.PropTypes.string,
-  type: React.PropTypes.number,
+  url: PropTypes.string,
+  type: PropTypes.number,
 };
 
 GREEButton.defaultProps = {

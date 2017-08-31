@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-export default class FeedlyButton extends React.Component {
-
+export default class FeedlyButton extends Component {
   constructor(props) {
     super(props);
     this.state = ({
@@ -125,8 +125,8 @@ export default class FeedlyButton extends React.Component {
 }
 
 FeedlyButton.propTypes = {
-  feedurl: React.PropTypes.string.isRequired,
-  layout: React.PropTypes.string,
+  feedurl: PropTypes.string.isRequired,
+  layout: PropTypes.string,
 };
 
 FeedlyButton.defaultProps = {

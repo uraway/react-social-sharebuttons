@@ -1,4 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export default class TumblrFollowButton extends Component {
   constructor(props) {
@@ -9,6 +10,7 @@ export default class TumblrFollowButton extends Component {
   render() {
     return (
       <iframe
+        title="tumblr-follow-button"
         className="btn"
         frameBorder="0"
         scrolling="no"

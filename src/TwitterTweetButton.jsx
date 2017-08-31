@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-export default class TwitterTweetButton extends React.Component {
+export default class TwitterTweetButton extends Component {
   constructor(props) {
     super(props);
     this.state = ({ initialized: false });
@@ -47,10 +48,10 @@ export default class TwitterTweetButton extends React.Component {
 }
 
 TwitterTweetButton.propTypes = {
-  url: React.PropTypes.string,
-  text: React.PropTypes.string,
-  hashtags: React.PropTypes.string,
-  user: React.PropTypes.string
+  url: PropTypes.string,
+  text: PropTypes.string,
+  hashtags: PropTypes.string,
+  user: PropTypes.string
 };
 
 TwitterTweetButton.defaultProps = {

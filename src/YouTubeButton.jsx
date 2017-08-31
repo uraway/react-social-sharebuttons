@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-export default class YouTubeButton extends React.Component {
+export default class YouTubeButton extends Component {
   constructor(props) {
     super(props);
     this.state = ({ initialized: false });
@@ -38,10 +39,10 @@ export default class YouTubeButton extends React.Component {
 }
 
 YouTubeButton.propTypes = {
-  channel: React.PropTypes.string.isRequired,
-  layout: React.PropTypes.string,
-  theme: React.PropTypes.string,
-  count: React.PropTypes.string,
+  channel: PropTypes.string.isRequired,
+  layout: PropTypes.string,
+  theme: PropTypes.string,
+  count: PropTypes.string,
 };
 
 YouTubeButton.defaultProps = {

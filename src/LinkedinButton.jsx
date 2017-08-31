@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-export default class LinkedinButton extends React.Component {
+export default class LinkedinButton extends Component {
   constructor(props) {
     super(props);
     this.state = ({ initialized: false });
@@ -90,9 +91,9 @@ export default class LinkedinButton extends React.Component {
 }
 
 LinkedinButton.propTypes = {
-  url: React.PropTypes.string,
-  counter: React.PropTypes.string,
-  lang: React.PropTypes.string,
+  url: PropTypes.string,
+  counter: PropTypes.string,
+  lang: PropTypes.string,
 };
 
 LinkedinButton.defaultProps = {

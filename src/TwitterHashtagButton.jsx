@@ -1,6 +1,7 @@
-import React, { PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-export default class TwitterHashtagButton extends React.Component {
+export default class TwitterHashtagButton extends Component {
   constructor(props) {
     super(props);
     this.state = ({ initialized: false });
