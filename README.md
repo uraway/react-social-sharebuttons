@@ -29,7 +29,7 @@ Do you want any other social share buttons? Feel free to contanct with me or cre
 - [LINE Button](https://github.com/uraway/react-social-sharebuttons/blob/master/documents/react-line-button.md)
 - [LINE Button 日本語ドキュメント/website](http://uraway.hatenablog.com/entry/2016/02/04/000000)
 
-- [Linkedin Button](https://github.com/uraway/react-social-sharebuttons/blob/master/documents/react-linkedin-button.md)
+- [Linkedin Button](https://github.com/uraway/react-social-sharebuttons/blob/master/documents/react-Linkedin-button.md)
 - [Linkedin Button 日本語ドキュメント/website](http://uraway.hatenablog.com/entry/2016/02/08/000000)
 
 - [TumblrFollow Button](https://github.com/uraway/react-social-sharebuttons/blob/master/documents/react-tumblrfollow-button.md)
