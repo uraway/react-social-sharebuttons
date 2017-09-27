@@ -12,6 +12,7 @@ export default class LinkedinButton extends Component {
       return;
     }
 
+    if (window.IN) delete window.IN;
     const linkedinbutton = this.node;
     const linkedinscript = document.createElement('script');
     linkedinscript.src = '//platform.linkedin.com/in.js';
