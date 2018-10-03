@@ -2,7 +2,7 @@
 
 Simple React components for Social Share Buttons.
 
-![](http://i.imgur.com/bNa17js.png)
+![image](https://user-images.githubusercontent.com/15242484/46402770-459d5b00-c733-11e8-8d0e-b053829976cf.png)
 
 ### Install
 
