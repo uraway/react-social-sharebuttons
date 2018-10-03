@@ -5,3 +5,4 @@ lib
 .eslintcache
 
 npm-debug.log
+.cache

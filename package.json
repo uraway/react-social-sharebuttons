@@ -3,18 +3,9 @@
   "version": "3.0.0-rc3",
   "description": "Simple React components for Social Share Buttons.",
   "main": "lib/main.js",
-  "watch": {
-    "build": {
-      "patterns": [
-        "src"
-      ],
-      "extensions": "jsx"
-    }
-  },
   "scripts": {
-    "test": "mocha test/test.js",
-    "build": "babel src --out-dir lib",
-    "watch": "npm-watch",
+    "build": "parcel build src/main.jsx -d lib",
+    "start": "parcel watch src/main.jsx -d lib",
     "lint": "eslint --ext .js,.jsx ./"
   },
   "keywords": [
@@ -54,7 +45,6 @@
     "url": "https://github.com/uraway/react-social-sharebuttons/issues"
   },
   "devDependencies": {
-    "@babel/cli": "^7.1.2",
     "@babel/core": "^7.1.2",
     "@babel/plugin-proposal-class-properties": "^7.1.0",
     "@babel/preset-env": "^7.1.0",
@@ -70,7 +60,7 @@
     "eslint-plugin-prettier": "^3.0.0",
     "eslint-plugin-react": "^7.11.1",
     "flow-bin": "^0.82.0",
-    "npm-watch": "^0.4.0",
+    "parcel-bundler": "^1.10.1",
     "prettier": "^1.14.3",
     "react": "^16.5.2",
     "react-dom": "^16.5.2"
