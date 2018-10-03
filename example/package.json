@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "react": "^16.5.2",
-    "react-dom": "^16.5.2"
+    "react-dom": "^16.5.2",
+    "react-social-sharebuttons": "^3.0.0-rc3"
   }
 }
