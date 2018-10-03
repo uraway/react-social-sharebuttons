@@ -24,7 +24,7 @@ jobs:
       - store_test_results:
           path: ./reports
       - persist_to_workspace:
-          root: ~/repo
+          root: ~/project
           paths:
             - .
 
@@ -32,7 +32,7 @@ jobs:
     executor: default
     steps:
       - attach_workspace:
-          at: ~/repo
+          at: ~/project
       - run:
           name: Authenticate
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
