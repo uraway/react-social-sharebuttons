@@ -1,23 +1,48 @@
+// @flow
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
-export default class FacebookButton extends Component {
-  constructor(props) {
+declare var FB: any;
+
+type Props = {
+  url?: string,
+  layout?: 'standard' | 'box_count' | 'button_count' | 'button',
+  action?: 'like' | 'recommended',
+  showFaces?: boolean,
+  share?: boolean,
+};
+
+type State = {
+  initialized: boolean,
+};
+
+export default class FacebookButton extends Component<Props, State> {
+  node = null;
+
+  static defaultProps = {
+    url: typeof window !== 'undefined' ? window.url : '',
+    layout: '',
+    action: '',
+    showFaces: false,
+    share: false,
+  };
+
+  constructor(props: Props) {
     super(props);
-    this.state = ({ initialized: false });
+    this.state = { initialized: false };
   }
 
   componentDidMount() {
-    if (this.state.initialized) {
+    const { initialized } = this.state;
+    if (initialized) {
       return;
     }
 
-    if (typeof FB === 'undefined') {
+    if (typeof FB === 'undefined' && this.node !== null) {
       const facebookbutton = this.node;
       const facebookscript = document.createElement('script');
       facebookscript.src = '//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5';
       facebookscript.id = 'facebook-jssdk';
-      facebookbutton.parentNode.appendChild(facebookscript);
+      if (facebookbutton.parentNode) facebookbutton.parentNode.appendChild(facebookscript);
     } else {
       FB.XFBML.parse(); // eslint-disable-line
     }
@@ -30,43 +55,18 @@ export default class FacebookButton extends Component {
   }
 
   render() {
+    const { url, layout, action, showFaces, share, ...others } = this.props;
     return (
       <div
-        ref={node => this.node = node}
+        ref={(node) => (this.node = node)}
         className="fb-like"
-        data-href={this.props.url}
-        data-layout={this.props.layout}
-        data-action={this.props.action}
-        data-show-faces={this.props.showFaces}
-        data-share={this.props.share}
+        data-href={url}
+        data-layout={layout}
+        data-action={action}
+        data-show-faces={showFaces}
+        data-share={share}
+        {...others}
       />
     );
   }
 }
-
-FacebookButton.propTypes = {
-  url: PropTypes.string,
-  layout: PropTypes.string,
-  action: PropTypes.string,
-  showFaces: PropTypes.bool,
-  share: PropTypes.bool,
-};
-
-FacebookButton.defaultProps = {
-  url: (typeof window !== 'undefined' ? window.url : ''),
-  layout: '',
-  action: '',
-  showFaces: false,
-  share: false
-};
-
-/*
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
- */

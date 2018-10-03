@@ -1,35 +1,28 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+// @flow
+import React from 'react';
 
-export default class TumblrFollowButton extends Component {
-  constructor(props) {
-    super(props);
-    this.state = ({ initialized: false });
-  }
-
-  render() {
-    return (
-      <iframe
-        title="tumblr-follow-button"
-        className="btn"
-        frameBorder="0"
-        scrolling="no"
-        allowTransparency="true"
-        height="20"
-        width="65"
-        src={`https://platform.tumblr.com/v2/follow_button.html?type=follow&amp;tumblelog=${this.props.tumblelog}&amp;color=${this.props.color}`}
-      />
-    );
-  }
-}
-
-TumblrFollowButton.propTypes = {
-  color: PropTypes.string,
-  tumblelog: PropTypes.string.isRequired,
+type Props = {
+  tumblelog: string,
+  color?: 'blue' | 'white' | 'black',
 };
 
+export default function TumblrFollowButton({ tumblelog, color = 'blue' }: Props) {
+  return (
+    <iframe
+      title="tumblr-follow-button"
+      className="btn"
+      frameBorder="0"
+      scrolling="no"
+      allowTransparency="true"
+      height="20"
+      width="65"
+      src={`https://platform.tumblr.com/v2/follow_button.html?type=follow&amp;tumblelog=${tumblelog}&amp;color=${color}`}
+    />
+  );
+}
+
 TumblrFollowButton.defaultProps = {
-  color: ''
+  color: 'blue',
 };
 
 /*

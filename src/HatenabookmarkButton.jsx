@@ -1,14 +1,29 @@
+// @flow
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
-export default class HatenabookmarkButton extends Component {
-  constructor(props) {
+type Props = {
+  url?: string,
+  title?: string,
+  layout?: 'default' | 'simple-balloon' | 'standard-balloon',
+};
+
+type State = {
+  initialized: boolean,
+};
+
+export default class HatenabookmarkButton extends Component<Props, State> {
+  node = null;
+
+  static defaultProps = { url: typeof window !== 'undefined' ? window.url : '', layout: '', title: '' };
+
+  constructor(props: Props) {
     super(props);
-    this.state = ({ initialized: false });
+    this.state = { initialized: false };
   }
 
   componentDidMount() {
-    if (this.state.initialized) {
+    const { initialized } = this.state;
+    if (initialized) {
       return;
     }
 
@@ -16,7 +31,9 @@ export default class HatenabookmarkButton extends Component {
     const hatenascript = document.createElement('script');
     hatenascript.src = 'https://b.st-hatena.com/js/bookmark_button.js';
     hatenascript.type = 'text/javascript';
-    hatenabutton.parentNode.appendChild(hatenascript);
+    if (hatenabutton !== null && hatenabutton.parentNode) {
+      hatenabutton.parentNode.appendChild(hatenascript);
+    }
 
     this.initialized();
   }
@@ -26,13 +43,14 @@ export default class HatenabookmarkButton extends Component {
   }
 
   render() {
+    const { url, title, layout, ...others } = this.props;
     return (
       <a
-        ref={node => this.node = node}
-        href={`http://b.hatena.ne.jp/entry/${this.props.url}`}
+        ref={(node) => (this.node = node)}
+        href={`http://b.hatena.ne.jp/entry/${url || ''}`}
         className="hatena-bookmark-button"
-        data-hatena-bookmark-title={this.props.title}
-        data-hatena-bookmark-layout={this.props.layout}
+        data-hatena-bookmark-title={title}
+        data-hatena-bookmark-layout={layout}
         data-hatena-bookmark-lang="ja"
         title="このエントリーをはてなブックマークに追加"
       >
@@ -40,20 +58,9 @@ export default class HatenabookmarkButton extends Component {
           src="https://b.st-hatena.com/images/entry-button/button-only@2x.png"
           alt="このエントリーをはてなブックマークに追加"
           style={{ width: 20, height: 20, border: 'none' }}
+          {...others}
         />
       </a>
     );
   }
 }
-
-HatenabookmarkButton.propTypes = {
-  url: PropTypes.string,
-  layout: PropTypes.string,
-  title: PropTypes.string,
-};
-
-HatenabookmarkButton.defaultProps = {
-  url: (typeof window !== 'undefined' ? window.url : ''),
-  layout: '',
-  title: ''
-};

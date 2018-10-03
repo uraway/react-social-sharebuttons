@@ -1,29 +1,29 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+// @flow
+import React from 'react';
 
-export default class GREEButton extends Component {
-  render() {
-    return (
-      <iframe
-        title="gree-button"
-        src={`http://share.gree.jp/share?url=${encodeURIComponent(this.props.url)}&type=${this.props.type}&height=20`}
-        scrolling="no"
-        frameBorder="0"
-        marginWidth="0"
-        marginHeight="0"
-        allowTransparency
-        style={{ border: 'none', overflow: 'hidden', width: '80px', height: '20px' }}
-      />
-    );
-  }
-}
-
-GREEButton.propTypes = {
-  url: PropTypes.string,
-  type: PropTypes.number,
+type Props = {
+  url?: string,
+  type?: 0 | 1 | 2 | 3 | 4,
+  height?: number,
 };
 
+export default function GREEButton({ url = '', type, height, ...others }: Props) {
+  return (
+    <iframe
+      title="gree-button"
+      src={`http://share.gree.jp/share?url=${encodeURIComponent(url)}&type=${String(type)}&height=${String(height)}`}
+      scrolling="no"
+      frameBorder="0"
+      marginWidth="0"
+      marginHeight="0"
+      style={{ border: 'none', overflow: 'hidden', width: '80px', height: '20px' }}
+      {...others}
+    />
+  );
+}
+
 GREEButton.defaultProps = {
-  url: (typeof window !== 'undefined' ? window.url : ''),
-  type: 0
+  url: typeof window !== 'undefined' ? window.url : '',
+  type: 0,
+  height: 20,
 };

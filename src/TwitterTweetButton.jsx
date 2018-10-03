@@ -1,14 +1,37 @@
+// @flow
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
-export default class TwitterTweetButton extends Component {
-  constructor(props) {
+declare var twttr: any;
+
+type Props = {
+  url?: string,
+  text?: string,
+  hashtags?: string,
+  user?: string,
+};
+
+type State = {
+  initialized: boolean,
+};
+
+export default class TwitterTweetButton extends Component<Props, State> {
+  static defaultProps = {
+    url: typeof window !== 'undefined' ? window.url : '',
+    text: '',
+    hashtags: '',
+    user: '',
+  };
+
+  node = null;
+
+  constructor(props: Props) {
     super(props);
-    this.state = ({ initialized: false });
+    this.state = { initialized: false };
   }
 
   componentDidMount() {
-    if (this.state.initialized) {
+    const { initialized } = this.state;
+    if (initialized) {
       return;
     }
 
@@ -18,9 +41,9 @@ export default class TwitterTweetButton extends Component {
       twitterscript.src = '//platform.twitter.com/widgets.js';
       twitterscript.async = true;
       twitterscript.id = 'twitter-wjs';
-      twitterbutton.parentNode.appendChild(twitterscript);
+      if (twitterbutton && twitterbutton.parentNode) twitterbutton.parentNode.appendChild(twitterscript);
     } else {
-      twttr.widgets.load(); // eslint-disable-line
+      twttr.widgets.load();
     }
 
     this.initialized();
@@ -31,36 +54,19 @@ export default class TwitterTweetButton extends Component {
   }
 
   render() {
+    const { url, text, user, hashtags } = this.props;
     return (
       <a
-        ref={node => this.node = node}
+        ref={(node) => (this.node = node)}
         href="https://twitter.com/share"
         className="twitter-share-button"
-        data-url={this.props.url}
-        data-text={this.props.text}
-        data-via={this.props.user}
-        data-hashtags={this.props.hashtags}
+        data-url={url}
+        data-text={text}
+        data-via={user}
+        data-hashtags={hashtags}
       >
         Tweet
       </a>
     );
   }
 }
-
-TwitterTweetButton.propTypes = {
-  url: PropTypes.string,
-  text: PropTypes.string,
-  hashtags: PropTypes.string,
-  user: PropTypes.string
-};
-
-TwitterTweetButton.defaultProps = {
-  url: (typeof window !== 'undefined' ? window.url : ''),
-  text: '',
-  hashtags: '',
-  user: ''
-};
-/*
-<a href="https://twitter.com/share" class="twitter-share-button" data-url="pageurl" data-text="pagetitle" data-via="uraway_" data-size="large" data-hashtags="hashtag" data-dnt="true">Tweet</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-*/

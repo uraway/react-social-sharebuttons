@@ -1,14 +1,32 @@
+// @flow
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
-export default class TwitterFollowButton extends Component {
-  constructor(props) {
+declare var twttr: any;
+
+type Props = {
+  user: string,
+  showCount?: boolean,
+};
+
+type State = {
+  initialized: boolean,
+};
+
+export default class TwitterFollowButton extends Component<Props, State> {
+  node = null;
+
+  static defaultProps = {
+    showCount: true,
+  };
+
+  constructor(props: Props) {
     super(props);
-    this.state = ({ initialized: false });
+    this.state = { initialized: false };
   }
 
   componentDidMount() {
-    if (this.state.initialized) {
+    const { initialized } = this.state;
+    if (initialized) {
       return;
     }
 
@@ -18,9 +36,9 @@ export default class TwitterFollowButton extends Component {
       twitterscript.src = '//platform.twitter.com/widgets.js';
       twitterscript.async = true;
       twitterscript.id = 'twitter-wjs';
-      twitterbutton.parentNode.appendChild(twitterscript);
+      if (twitterbutton && twitterbutton.parentNode) twitterbutton.parentNode.appendChild(twitterscript);
     } else {
-      twttr.widgets.load(); // eslint-disable-line
+      twttr.widgets.load();
     }
 
     this.initialized();
@@ -31,29 +49,16 @@ export default class TwitterFollowButton extends Component {
   }
 
   render() {
+    const { user, showCount } = this.props;
     return (
       <a
-        ref={node => this.node = node}
-        href={`https://twitter.com/${this.props.user}`}
+        ref={(node) => (this.node = node)}
+        href={`https://twitter.com/${user}`}
         className="twitter-follow-button"
-        data-show-count={this.props.showCount}
+        data-show-count={showCount}
       >
-        Follow @{this.props.user}
+        Follow @{user}
       </a>
     );
   }
 }
-
-TwitterFollowButton.propTypes = {
-  user: PropTypes.string.isRequired,
-  showCount: PropTypes.bool,
-};
-
-TwitterFollowButton.defaultProps = {
-  showCount: true
-};
-
-/*
-<a href="https://twitter.com/uraway_" class="twitter-follow-button" data-show-count="false">Follow @uraway_</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-*/

@@ -1,21 +1,37 @@
+// @flow
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
-export default class YouTubeButton extends Component {
-  constructor(props) {
+type Props = {
+  channel: string,
+  layout?: 'none' | 'full',
+  theme?: 'none' | 'dark',
+  count?: 'show' | 'hidden',
+};
+
+type State = {
+  initialized: boolean,
+};
+
+export default class YouTubeButton extends Component<Props, State> {
+  static defaultProps = { layout: 'none', theme: 'none', count: 'show' };
+
+  node = null;
+
+  constructor(props: Props) {
     super(props);
-    this.state = ({ initialized: false });
+    this.state = { initialized: false };
   }
 
   componentDidMount() {
-    if (this.state.initialized) {
+    const { initialized } = this.state;
+    if (initialized) {
       return;
     }
 
     const youtubebutton = this.node;
     const youtubescript = document.createElement('script');
     youtubescript.src = 'https://apis.google.com/js/platform.js';
-    youtubebutton.parentNode.appendChild(youtubescript);
+    if (youtubebutton && youtubebutton.parentNode) youtubebutton.parentNode.appendChild(youtubescript);
 
     this.initialized();
   }
@@ -25,28 +41,16 @@ export default class YouTubeButton extends Component {
   }
 
   render() {
+    const { channel, layout, theme, count } = this.props;
     return (
       <div
-        ref={node => this.node = node}
+        ref={(node) => (this.node = node)}
         className="g-ytsubscribe"
-        data-channel={this.props.channel}
-        data-layout={this.props.layout}
-        data-theme={this.props.theme}
-        data-count={this.props.count}
+        data-channel={channel}
+        data-layout={layout}
+        data-theme={theme}
+        data-count={count}
       />
     );
   }
 }
-
-YouTubeButton.propTypes = {
-  channel: PropTypes.string.isRequired,
-  layout: PropTypes.string,
-  theme: PropTypes.string,
-  count: PropTypes.string,
-};
-
-YouTubeButton.defaultProps = {
-  layout: '',
-  theme: '',
-  count: ''
-};

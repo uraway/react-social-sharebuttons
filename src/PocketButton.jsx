@@ -1,14 +1,29 @@
+// @flow
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
-export default class PocketButton extends Component {
-  constructor(props) {
+type Props = {
+  count?: 'horizontal' | 'vertical' | 'none',
+};
+
+type State = {
+  initialized: boolean,
+};
+
+export default class PocketButton extends Component<Props, State> {
+  node = null;
+
+  static defaultProps = {
+    count: '',
+  };
+
+  constructor(props: Props) {
     super(props);
-    this.state = ({ initialized: false });
+    this.state = { initialized: false };
   }
 
   componentDidMount() {
-    if (this.state.initialized) {
+    const { initialized } = this.state;
+    if (initialized) {
       return;
     }
 
@@ -17,7 +32,7 @@ export default class PocketButton extends Component {
     pocketscript.src = 'https://widgets.getpocket.com/v1/j/btn.js?v=1';
     pocketscript.async = true;
     pocketscript.id = 'pocket-btn-js';
-    pocketbutton.parentNode.appendChild(pocketscript);
+    if (pocketbutton && pocketbutton.parentNode) pocketbutton.parentNode.appendChild(pocketscript);
 
     this.initialized();
   }
@@ -27,28 +42,18 @@ export default class PocketButton extends Component {
   }
 
   render() {
+    const { count, ...others } = this.props;
     return (
       <a
-        ref={node => this.node = node}
+        ref={(node) => (this.node = node)}
         data-pocket-label="pocket"
-        data-pocket-count={this.props.count}
+        data-pocket-count={count}
         className="pocket-btn"
         data-lang="en"
+        {...others}
       >
         Pocket
       </a>
     );
   }
 }
-
-PocketButton.propTypes = {
-  count: PropTypes.string
-};
-
-PocketButton.defaultProps = {
-  count: ''
-};
-
-/*
-<script type="text/javascript">!function(d,i){if(!d.getElementById(i)){var j=d.createElement("script");j.id=i;j.src="https://widgets.getpocket.com/v1/j/btn.js?v=1";var w=d.getElementById(i);d.body.appendChild(j);}}(document,"pocket-btn-js");</script>
-*/

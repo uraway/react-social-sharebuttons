@@ -1,14 +1,30 @@
+// @flow
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
-export default class TwitterTweetToButton extends Component {
-  constructor(props) {
+declare var twttr: any;
+
+type Props = {
+  user: string,
+  text?: string,
+};
+
+type State = {
+  initialized: boolean,
+};
+
+export default class TwitterTweetToButton extends Component<Props, State> {
+  static defaultProps = { text: '' };
+
+  node = null;
+
+  constructor(props: Props) {
     super(props);
-    this.state = ({ initialized: false });
+    this.state = { initialized: false };
   }
 
   componentDidMount() {
-    if (this.state.initialized) {
+    const { initialized } = this.state;
+    if (initialized) {
       return;
     }
 
@@ -18,9 +34,9 @@ export default class TwitterTweetToButton extends Component {
       twitterscript.src = '//platform.twitter.com/widgets.js';
       twitterscript.async = true;
       twitterscript.id = 'twitter-wjs';
-      twitterbutton.parentNode.appendChild(twitterscript);
+      if (twitterbutton && twitterbutton.parentNode) twitterbutton.parentNode.appendChild(twitterscript);
     } else {
-      twttr.widgets.load(); // eslint-disable-line
+      twttr.widgets.load();
     }
 
     this.initialized();
@@ -31,28 +47,15 @@ export default class TwitterTweetToButton extends Component {
   }
 
   render() {
+    const { user, text } = this.props;
     return (
       <a
-        ref={node => this.node = node}
-        href={`https://twitter.com/intent/tweet?screen_name=${this.props.user}&text=${this.props.text}`}
+        ref={(node) => (this.node = node)}
+        href={`https://twitter.com/intent/tweet?screen_name=${user}&text=${text || ''}`}
         className="twitter-mention-button"
       >
-        Tweet to {this.props.user}
+        Tweet to {user}
       </a>
     );
   }
 }
-
-TwitterTweetToButton.propTypes = {
-  user: PropTypes.string.isRequired,
-  text: PropTypes.string,
-};
-
-TwitterTweetToButton.defaultProps = {
-  text: ''
-};
-
-/*
-<a href="https://twitter.com/intent/tweet?screen_name=uraway_&text=text" class="twitter-mention-button">Tweet to @uraway_</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-*/
