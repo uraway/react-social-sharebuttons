@@ -5,14 +5,12 @@ import {
   LINEButton,
   HatenabookmarkButton,
   FeedlyButton,
-  GREEButton,
   LinkedinButton,
   TumblrPostButton,
   FacebookButton,
   TwitterTweetButton,
   PocketButton,
   YouTubeButton,
-  GithubButton,
 } from '../lib/main';
 
 class App extends React.Component {
@@ -27,9 +25,6 @@ class App extends React.Component {
         </ol>
         <ol>
           <FeedlyButton feedurl="http://uraway.hatenablog.com/feed" />
-        </ol>
-        <ol>
-          <GREEButton />
         </ol>
         <ol>
           <LinkedinButton />
@@ -48,9 +43,6 @@ class App extends React.Component {
         </ol>
         <ol>
           <YouTubeButton channel="GoogleDevelopers" />
-        </ol>
-        <ol>
-          <GithubButton user="uraway" repo="react-social-sharebuttons" />
         </ol>
       </ul>
     );
