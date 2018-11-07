@@ -15,7 +15,7 @@ const notesOptions = {
   right: 'right',
 };
 
-storiesOf('TumblrPostButton', module)
+export default storiesOf('TumblrPostButton', module)
   .addDecorator(withKnobs)
   .add('configured', () => (
     <TumblrPostButton color={select('color', colorOptions)} notes={select('notes', notesOptions)} />

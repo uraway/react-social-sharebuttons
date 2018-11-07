@@ -19,7 +19,7 @@ const countOptions = {
   hidden: 'hidden',
 };
 
-storiesOf('YouTubeButton', module)
+export default storiesOf('YouTubeButton', module)
   .addDecorator(withKnobs)
   .add('configured', () => (
     <YouTubeButton

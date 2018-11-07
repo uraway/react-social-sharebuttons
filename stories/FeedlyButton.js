@@ -23,7 +23,7 @@ const layoutOptions = {
   'logo-white': 'logo-white',
 };
 
-storiesOf('FeedlyButton', module)
+export default storiesOf('FeedlyButton', module)
   .addDecorator(withKnobs)
   .add('configured', () => (
     <FeedlyButton feedurl={text('feedurl', '')} layout={select('layout', layoutOptions, 'rectangle-volume-big')} />

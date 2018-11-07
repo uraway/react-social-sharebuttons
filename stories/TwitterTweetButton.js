@@ -3,7 +3,7 @@ import { storiesOf } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import TwitterTweetButton from '../src/TwitterTweetButton';
 
-storiesOf('TwitterTweetButton', module)
+export default storiesOf('TwitterTweetButton', module)
   .addDecorator(withKnobs)
   .add('configured', () => (
     <TwitterTweetButton

@@ -11,6 +11,6 @@ const imgOptions = {
   '82x20': '82x20',
 };
 
-storiesOf('LINEButton', module)
+export default storiesOf('LINEButton', module)
   .addDecorator(withKnobs)
   .add('configured', () => <LINEButton text={text('text', '')} image={select('img', imgOptions, '20x20')} />);

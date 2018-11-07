@@ -11,7 +11,7 @@ const layoutOptions = {
   button: 'button',
 };
 
-storiesOf('FacebookButton', module)
+export default storiesOf('FacebookButton', module)
   .addDecorator(withKnobs)
   .add('configured', () => (
     <FacebookButton

@@ -8,7 +8,7 @@ const counterOptions = {
   right: 'right',
 };
 
-storiesOf('LinkedinButton', module)
+export default storiesOf('LinkedinButton', module)
   .addDecorator(withKnobs)
   .add('configured', () => (
     <LinkedinButton

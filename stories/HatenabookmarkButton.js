@@ -9,7 +9,7 @@ const layoutOptions = {
   'standard-balloon': 'standard-balloon',
 };
 
-storiesOf('HatenabookmarkButton', module)
+export default storiesOf('HatenabookmarkButton', module)
   .addDecorator(withKnobs)
   .add('configured', () => (
     <HatenabookmarkButton

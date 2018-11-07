@@ -9,6 +9,6 @@ const countOptions = {
   none: 'none',
 };
 
-storiesOf('PocketButton', module)
+export default storiesOf('PocketButton', module)
   .addDecorator(withKnobs)
   .add('configured', () => <PocketButton count={select('count', countOptions, 'horizontal')} />);
