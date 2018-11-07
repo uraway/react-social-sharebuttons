@@ -127,11 +127,3 @@ FeedlyButton.defaultProps = {
   width: '',
   height: '',
 };
-
-/*
-encoded
-http://cloud.feedly.com/#subscription%2Ffeed%2Fhttp%3A%2F%2Furaway.hatenablog.com%2Ffeed
-http://cloud.feedly.com/#subscription%2Ffeed%2Fhttp%3A%2F%2Furaway.hatenablog.com%2Ffeed
-decoded
-http://cloud.feedly.com/#subscription/feed/http://uraway.hatenablog.com/feed
-*/

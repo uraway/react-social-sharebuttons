@@ -5,55 +5,36 @@ type Props = {
   count?: 'horizontal' | 'vertical' | 'none',
 };
 
-type State = {
-  initialized: boolean,
-};
-
-export default class PocketButton extends Component<Props, State> {
+export default class PocketButton extends Component<Props> {
   node = null;
 
   static defaultProps = {
     count: '',
   };
 
-  constructor(props: Props) {
-    super(props);
-    this.state = { initialized: false };
-  }
-
   componentDidMount() {
-    const { initialized } = this.state;
-    if (initialized) {
-      return;
-    }
-
-    const pocketbutton = this.node;
-    const pocketscript = document.createElement('script');
-    pocketscript.src = 'https://widgets.getpocket.com/v1/j/btn.js?v=1';
-    pocketscript.async = true;
-    pocketscript.id = 'pocket-btn-js';
-    if (pocketbutton && pocketbutton.parentNode) pocketbutton.parentNode.appendChild(pocketscript);
-
-    this.initialized();
-  }
-
-  initialized() {
-    this.setState({ initialized: true });
+    const s = document.createElement('script');
+    s.src = 'https://widgets.getpocket.com/v1/j/btn.js?v=1';
+    s.async = true;
+    s.id = 'pocket-btn-js';
+    if (this.node && this.node.parentNode) this.node.parentNode.appendChild(s);
   }
 
   render() {
     const { count, ...others } = this.props;
     return (
-      <a
-        ref={(node) => (this.node = node)}
-        data-pocket-label="pocket"
-        data-pocket-count={count}
-        className="pocket-btn"
-        data-lang="en"
-        {...others}
-      >
-        Pocket
-      </a>
+      <div>
+        <a
+          ref={(node) => (this.node = node)}
+          data-pocket-label="pocket"
+          data-pocket-count={count}
+          className="pocket-btn"
+          data-lang="en"
+          {...others}
+        >
+          Pocket
+        </a>
+      </div>
     );
   }
 }

@@ -8,56 +8,37 @@ type Props = {
   text?: string,
 };
 
-type State = {
-  initialized: boolean,
-};
-
-export default class TwitterHashtagButton extends Component<Props, State> {
+export default class TwitterHashtagButton extends Component<Props> {
   static defaultProps = {
     text: '',
   };
 
   node = null;
 
-  constructor(props: Props) {
-    super(props);
-    this.state = { initialized: false };
-  }
-
   componentDidMount() {
-    const { initialized } = this.state;
-    if (initialized) {
-      return;
-    }
-
     if (typeof twttr === 'undefined') {
-      const twitterbutton = this.node;
-      const twitterscript = document.createElement('script');
-      twitterscript.src = '//platform.twitter.com/widgets.js';
-      twitterscript.async = true;
-      twitterscript.id = 'twitter-wjs';
-      if (twitterbutton && twitterbutton.parentNode) twitterbutton.parentNode.appendChild(twitterscript);
+      const s = document.createElement('script');
+      s.src = '//platform.twitter.com/widgets.js';
+      s.async = true;
+      s.id = 'twitter-wjs';
+      if (this.node && this.node.parentNode) this.node.parentNode.appendChild(s);
     } else {
       twttr.widgets.load();
     }
-
-    this.initialized();
-  }
-
-  initialized() {
-    this.setState({ initialized: true });
   }
 
   render() {
     const { hashtag, text } = this.props;
     return (
-      <a
-        ref={(node) => (this.node = node)}
-        href={`https://twitter.com/intent/tweet?button_hashtag=${hashtag}&text=${text || ''}`}
-        className="twitter-hashtag-button"
-      >
-        Tweet {hashtag}
-      </a>
+      <div>
+        <a
+          ref={(node) => (this.node = node)}
+          href={`https://twitter.com/intent/tweet?button_hashtag=${hashtag}&text=${text || ''}`}
+          className="twitter-hashtag-button"
+        >
+          Tweet {hashtag}
+        </a>
+      </div>
     );
   }
 }

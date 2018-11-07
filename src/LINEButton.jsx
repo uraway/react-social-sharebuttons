@@ -8,7 +8,7 @@ type Props = {
   image?: Img,
 };
 
-export default function LINEButton({ image = '20x20', text = '', ...others }: Props) {
+export default function LINEButton({ image = '20x20', text = '' }: Props) {
   const imgSet: {
     [Img]: {
       src: string,
@@ -47,12 +47,7 @@ export default function LINEButton({ image = '20x20', text = '', ...others }: Pr
 
   return (
     <a href={`http://line.me/R/msg/text/?${encodeURIComponent(text)}`}>
-      <img
-        src={currentImg.src}
-        style={{ height: currentImg.height, width: currentImg.width }}
-        alt="LINEで送る"
-        {...others}
-      />
+      <img src={currentImg.src} style={{ height: currentImg.height, width: currentImg.width }} alt="LINEで送る" />
     </a>
   );
 }

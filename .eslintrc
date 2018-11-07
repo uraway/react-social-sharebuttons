@@ -30,7 +30,8 @@
     "no-console": 0,
     "no-return-assign": 0,
     "react/prefer-stateless-function": 0,
-    "import/no-extraneous-dependencies": ["error", { "devDependencies": ["example/**.*"] }],
-    "no-param-reassign": [2, { "props": false }]
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": ["example/*", "stories/*"] }],
+		"no-param-reassign": [2, { "props": false }],
+		"react/jsx-filename-extension": 0
   }
 }

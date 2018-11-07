@@ -1,10 +1,12 @@
+// TODO:
+// - jest
+// - storybook
 // @flow
 import LINEButton from './LINEButton';
 import HatenabookmarkButton from './HatenabookmarkButton';
 import FeedlyButton from './FeedlyButton';
 import LinkedinButton from './LinkedinButton';
 import TumblrPostButton from './TumblrPostButton';
-import TumblrFollowButton from './TumblrFollowButton';
 import FacebookButton from './FacebookButton';
 import TwitterTweetButton from './TwitterTweetButton';
 import TwitterFollowButton from './TwitterFollowButton';
@@ -19,7 +21,6 @@ export {
   FeedlyButton,
   LinkedinButton,
   TumblrPostButton,
-  TumblrFollowButton,
   FacebookButton,
   TwitterTweetButton,
   TwitterFollowButton,
