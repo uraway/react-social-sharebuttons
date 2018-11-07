@@ -1,59 +1,45 @@
+// @flow
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
-export default class TwitterFollowButton extends Component {
-  constructor(props) {
-    super(props);
-    this.state = ({ initialized: false });
-  }
+declare var twttr: any;
+
+type Props = {
+  user: string,
+  showCount?: boolean,
+};
+
+export default class TwitterFollowButton extends Component<Props> {
+  node = null;
+
+  static defaultProps = {
+    showCount: true,
+  };
 
   componentDidMount() {
-    if (this.state.initialized) {
-      return;
-    }
-
     if (typeof twttr === 'undefined') {
-      const twitterbutton = this.node;
-      const twitterscript = document.createElement('script');
-      twitterscript.src = '//platform.twitter.com/widgets.js';
-      twitterscript.async = true;
-      twitterscript.id = 'twitter-wjs';
-      twitterbutton.parentNode.appendChild(twitterscript);
+      const s = document.createElement('script');
+      s.src = '//platform.twitter.com/widgets.js';
+      s.async = true;
+      s.id = 'twitter-wjs';
+      if (this.node && this.node.parentNode) this.node.parentNode.appendChild(s);
     } else {
-      twttr.widgets.load(); // eslint-disable-line
+      twttr.widgets.load();
     }
-
-    this.initialized();
-  }
-
-  initialized() {
-    this.setState({ initialized: true });
   }
 
   render() {
+    const { user, showCount } = this.props;
     return (
-      <a
-        ref={node => this.node = node}
-        href={`https://twitter.com/${this.props.user}`}
-        className="twitter-follow-button"
-        data-show-count={this.props.showCount}
-      >
-        Follow @{this.props.user}
-      </a>
+      <div>
+        <a
+          ref={(node) => (this.node = node)}
+          href={`https://twitter.com/${user}`}
+          className="twitter-follow-button"
+          data-show-count={showCount}
+        >
+          Follow @{user}
+        </a>
+      </div>
     );
   }
 }
-
-TwitterFollowButton.propTypes = {
-  user: PropTypes.string.isRequired,
-  showCount: PropTypes.bool,
-};
-
-TwitterFollowButton.defaultProps = {
-  showCount: true
-};
-
-/*
-<a href="https://twitter.com/uraway_" class="twitter-follow-button" data-show-count="false">Follow @uraway_</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-*/

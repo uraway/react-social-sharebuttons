@@ -1,72 +1,53 @@
+// @flow
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
-export default class FacebookButton extends Component {
-  constructor(props) {
-    super(props);
-    this.state = ({ initialized: false });
-  }
+declare var FB: any;
+
+type Props = {
+  url?: string,
+  layout?: 'standard' | 'box_count' | 'button_count' | 'button',
+  action?: 'like' | 'recommended',
+  showFaces?: boolean,
+  share?: boolean,
+};
+
+export default class FacebookButton extends Component<Props> {
+  node = null;
+
+  static defaultProps = {
+    url: typeof window !== 'undefined' ? window.url : '',
+    layout: 'standard',
+    action: 'like',
+    showFaces: false,
+    share: false,
+  };
 
   componentDidMount() {
-    if (this.state.initialized) {
-      return;
-    }
-
     if (typeof FB === 'undefined') {
-      const facebookbutton = this.node;
-      const facebookscript = document.createElement('script');
-      facebookscript.src = '//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5';
-      facebookscript.id = 'facebook-jssdk';
-      facebookbutton.parentNode.appendChild(facebookscript);
+      const s = document.createElement('script');
+      s.src = '//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5';
+      s.id = 'facebook-jssdk';
+      if (this.node !== null && this.node.parentNode) this.node.parentNode.appendChild(s);
     } else {
-      FB.XFBML.parse(); // eslint-disable-line
+      FB.XFBML.parse();
     }
-
-    this.initialized();
-  }
-
-  initialized() {
-    this.setState({ initialized: true });
   }
 
   render() {
+    const { url, layout, action, showFaces, share, ...others } = this.props;
     return (
-      <div
-        ref={node => this.node = node}
-        className="fb-like"
-        data-href={this.props.url}
-        data-layout={this.props.layout}
-        data-action={this.props.action}
-        data-show-faces={this.props.showFaces}
-        data-share={this.props.share}
-      />
+      <div>
+        <div
+          ref={(node) => (this.node = node)}
+          className="fb-like"
+          data-href={url}
+          data-layout={layout}
+          data-action={action}
+          data-show-faces={showFaces}
+          data-share={share}
+          {...others}
+        />
+      </div>
     );
   }
 }
-
-FacebookButton.propTypes = {
-  url: PropTypes.string,
-  layout: PropTypes.string,
-  action: PropTypes.string,
-  showFaces: PropTypes.bool,
-  share: PropTypes.bool,
-};
-
-FacebookButton.defaultProps = {
-  url: (typeof window !== 'undefined' ? window.url : ''),
-  layout: '',
-  action: '',
-  showFaces: false,
-  share: false
-};
-
-/*
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
- */

@@ -1,5 +1,8 @@
 node_modules
-example/build.js
+example/.cache
+example/dist
 lib
+.eslintcache
 
 npm-debug.log
+.cache

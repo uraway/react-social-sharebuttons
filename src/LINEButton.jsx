@@ -1,68 +1,58 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+// @flow
+import React from 'react';
 
-export default class LINEButton extends Component {
-  constructor(props) {
-    super(props);
-    this.state = ({
-      imageURL: '',
-      height: '',
-      width: '',
-    });
-  }
+type Img = '20x20' | '30x30' | '36x60' | '40x40' | '82x20';
 
-  componentWillMount() {
-    if (this.props.image === '20x20') {
-      this.setState({
-        imageURL: 'http://i.imgur.com/voMN0NH.png',
-        height: 20,
-        width: 20,
-      });
-    } else if (this.props.image === '30x30') {
-      this.setState({
-        imageURL: 'http://i.imgur.com/Lkq9vFO.png',
-        height: 30,
-        width: 30,
-      });
-    } else if (this.props.image === '36x60') {
-      this.setState({
-        imageURL: 'http://i.imgur.com/5sEp1TC.png',
-        height: 60,
-        width: 36,
-      });
-    } else if (this.props.image === '40x40') {
-      this.setState({
-        imageURL: 'http://i.imgur.com/ZoU91JG.png',
-        height: 40,
-        width: 40,
-      });
-    } else {
-      this.setState({
-        imageURL: 'http://i.imgur.com/cfjCxrh.png',
-        height: 20,
-        width: 82,
-      });
-    }
-  }
-
-  render() {
-    return (
-      <a href={`http://line.me/R/msg/text/?${encodeURIComponent(this.props.text)}`}>
-        <img
-          src={this.state.imageURL}
-          style={{ height: this.state.height, width: this.state.width }}
-          alt="LINEで送る"
-        /></a>
-    );
-  }
-}
-
-LINEButton.propTypes = {
-  image: PropTypes.string,
-  text: PropTypes.string,
+type Props = {
+  text?: string,
+  image?: Img,
 };
 
+export default function LINEButton({ image = '20x20', text = '' }: Props) {
+  const imgSet: {
+    [Img]: {
+      src: string,
+      height: number,
+      width: number,
+    },
+  } = {
+    '20x20': {
+      src: 'http://i.imgur.com/voMN0NH.png',
+      height: 20,
+      width: 20,
+    },
+    '30x30': {
+      src: 'http://i.imgur.com/Lkq9vFO.png',
+      height: 30,
+      width: 30,
+    },
+    '36x60': {
+      src: 'http://i.imgur.com/5sEp1TC.png',
+      height: 60,
+      width: 36,
+    },
+    '40x40': {
+      src: 'http://i.imgur.com/ZoU91JG.png',
+      height: 40,
+      width: 40,
+    },
+    '82x20': {
+      src: 'http://i.imgur.com/cfjCxrh.png',
+      height: 20,
+      width: 82,
+    },
+  };
+
+  const currentImg = imgSet[image];
+
+  return (
+    <a href={`http://line.me/R/msg/text/?${encodeURIComponent(text)}`}>
+      <img src={currentImg.src} style={{ height: currentImg.height, width: currentImg.width }} alt="LINEで送る" />
+    </a>
+  );
+}
+
 LINEButton.defaultProps = {
-  image: '',
-  text: ''
+  image: '20x20',
+  text: '',
 };

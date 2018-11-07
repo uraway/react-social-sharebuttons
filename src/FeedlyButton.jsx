@@ -1,142 +1,129 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+// @flow
+import React from 'react';
 
-export default class FeedlyButton extends Component {
-  constructor(props) {
-    super(props);
-    this.state = ({
-      layout: '',
-      width: '56px',
-      height: '131px',
-    });
-  }
+type Layout =
+  | 'rectangle-volume-big'
+  | 'rectangle-volume-medium'
+  | 'rectangle-volume-small'
+  | 'rectangle-flat-big'
+  | 'rectangle-flat-medium'
+  | 'rectangle-flat-small'
+  | 'square-volume'
+  | 'flat-green'
+  | 'circle-flat-green'
+  | 'logo-green'
+  | 'square-flat-black'
+  | 'circle-flat-black'
+  | 'logo-black'
+  | 'square-flat-white'
+  | 'circle-flat-white'
+  | 'logo-white';
 
-  componentDidMount() {
-    this.layoutSet();
-  }
+type Props = {
+  feedurl: string,
+  layout?: Layout,
+  width?: string,
+  height?: string,
+};
 
-  layoutSet() {
-    if (this.props.layout === 'rectangle-volume-big') {
-      this.setState({
-        layout: 'http://s3.feedly.com/img/follows/feedly-follow-rectangle-volume-big_2x.png',
-        height: '56px',
-        width: '131px',
-      });
-    } else if (this.props.layout === 'rectangle-volume-medium') {
-      this.setState({
-        layout: 'http://s3.feedly.com/img/follows/feedly-follow-rectangle-volume-medium_2x.png',
-        height: '28px',
-        width: '71px',
-      });
-    } else if (this.props.layout === 'rectangle-volume-small') {
-      this.setState({
-        layout: 'http://s3.feedly.com/img/follows/feedly-follow-rectangle-volume-small_2x.png',
-        height: '20px',
-        width: '66px',
-      });
-    } else if (this.props.layout === 'rectangle-flat-big') {
-      this.setState({
-        layout: 'http://s3.feedly.com/img/follows/feedly-follow-rectangle-flat-big_2x.png',
-        height: '28px',
-        width: '71px',
-      });
-    } else if (this.props.layout === 'rectangle-flat-medium') {
-      this.setState({
-        layout: 'http://s3.feedly.com/img/follows/feedly-follow-rectangle-flat-medium_2x.png',
-        height: '28px',
-        width: '71px',
-      });
-    } else if (this.props.layout === 'rectangle-flat-small') {
-      this.setState({
-        layout: 'http://s3.feedly.com/img/follows/feedly-follow-rectangle-flat-small_2x.png',
-        height: '20px',
-        width: '66px',
-      });
-    } else if (this.props.layout === 'square-volume') {
-      this.setState({
-        layout: 'http://s3.feedly.com/img/follows/feedly-follow-square-volume_2x.png',
-        height: '28px',
-        width: '28px',
-      });
-    } else if (this.props.layout === 'flat-green') {
-      this.setState({
-        layout: 'http://s3.feedly.com/img/follows/feedly-follow-square-flat-green_2x.png',
-        height: '28px',
-        width: '28px',
-      });
-    } else if (this.props.layout === 'circle-flat-green') {
-      this.setState({
-        layout: 'http://s3.feedly.com/img/follows/feedly-follow-circle-flat-green_2x.png',
-        height: '28px',
-        width: '28px',
-      });
-    } else if (this.props.layout === 'logo-green') {
-      this.setState({
-        layout: 'http://s3.feedly.com/img/follows/feedly-follow-logo-green_2x.png',
-        height: '28px',
-        width: '28px',
-      });
-    } else if (this.props.layout === 'square-flat-black') {
-      this.setState({
-        layout: 'http://s3.feedly.com/img/follows/feedly-follow-square-flat-black_2x.png',
-        height: '28px',
-        width: '28px',
-      });
-    } else if (this.props.layout === 'circle-flat-black') {
-      this.setState({
-        layout: 'http://s3.feedly.com/img/follows/feedly-follow-circle-flat-black_2x.png',
-        height: '28px',
-        width: '28px',
-      });
-    } else if (this.props.layout === 'logo-black') {
-      this.setState({
-        layout: 'http://s3.feedly.com/img/follows/feedly-follow-logo-black_2x.png',
-        height: '28px',
-        width: '28px',
-      });
-    } else if (this.props.layout === 'square-flat-white') {
-      this.setState({
-        layout: 'http://s3.feedly.com/img/follows/feedly-follow-square-flat-white_2x.png',
-        height: '28px',
-        width: '28px',
-      });
-    } else if (this.props.layout === 'circle-flat-white') {
-      this.setState({
-        layout: 'http://s3.feedly.com/img/follows/feedly-follow-circle-flat-white_2x.png',
-        height: '28px',
-        width: '28px',
-      });
-    } else if (this.props.layout === 'logo-white') {
-      this.setState({
-        layout: 'http://s3.feedly.com/img/follows/feedly-follow-logo-white_2x.png',
-        height: '28px',
-        width: '28px',
-      });
-    }
-  }
-
-  render() {
-    return (
-      <a href={`http://cloud.feedly.com/#subscription%2Ffeed%2F${encodeURIComponent(this.props.feedurl)}`} target="blank">
-        <img src={this.state.layout} alt="follow us in feedly" style={{ width: this.state.width, height: this.state.height }} />
-      </a>
-    );
-  }
+export default function FeedlyButton({ feedurl, layout = 'rectangle-volume-big', width, height, ...others }: Props) {
+  const layoutSet: { [Layout]: { width: string, height: string, img: string } } = {
+    'rectangle-volume-big': {
+      img: 'http://s3.feedly.com/img/follows/feedly-follow-rectangle-volume-big_2x.png',
+      height: '56px',
+      width: '131px',
+    },
+    'rectangle-volume-medium': {
+      img: 'http://s3.feedly.com/img/follows/feedly-follow-rectangle-volume-medium_2x.png',
+      height: '28px',
+      width: '71px',
+    },
+    'rectangle-volume-small': {
+      img: 'http://s3.feedly.com/img/follows/feedly-follow-rectangle-volume-small_2x.png',
+      height: '20px',
+      width: '66px',
+    },
+    'rectangle-flat-big': {
+      img: 'http://s3.feedly.com/img/follows/feedly-follow-rectangle-flat-big_2x.png',
+      height: '28px',
+      width: '71px',
+    },
+    'rectangle-flat-medium': {
+      img: 'http://s3.feedly.com/img/follows/feedly-follow-rectangle-flat-medium_2x.png',
+      height: '28px',
+      width: '71px',
+    },
+    'rectangle-flat-small': {
+      img: 'http://s3.feedly.com/img/follows/feedly-follow-rectangle-flat-small_2x.png',
+      height: '20px',
+      width: '66px',
+    },
+    'square-volume': {
+      img: 'http://s3.feedly.com/img/follows/feedly-follow-square-volume_2x.png',
+      height: '28px',
+      width: '28px',
+    },
+    'flat-green': {
+      img: 'http://s3.feedly.com/img/follows/feedly-follow-square-flat-green_2x.png',
+      height: '28px',
+      width: '28px',
+    },
+    'circle-flat-green': {
+      img: 'http://s3.feedly.com/img/follows/feedly-follow-circle-flat-green_2x.png',
+      height: '28px',
+      width: '28px',
+    },
+    'logo-green': {
+      img: 'http://s3.feedly.com/img/follows/feedly-follow-logo-green_2x.png',
+      height: '28px',
+      width: '28px',
+    },
+    'square-flat-black': {
+      img: 'http://s3.feedly.com/img/follows/feedly-follow-square-flat-black_2x.png',
+      height: '28px',
+      width: '28px',
+    },
+    'circle-flat-black': {
+      img: 'http://s3.feedly.com/img/follows/feedly-follow-circle-flat-black_2x.png',
+      height: '28px',
+      width: '28px',
+    },
+    'logo-black': {
+      img: 'http://s3.feedly.com/img/follows/feedly-follow-logo-black_2x.png',
+      height: '28px',
+      width: '28px',
+    },
+    'square-flat-white': {
+      img: 'http://s3.feedly.com/img/follows/feedly-follow-square-flat-white_2x.png',
+      height: '28px',
+      width: '28px',
+    },
+    'circle-flat-white': {
+      img: 'http://s3.feedly.com/img/follows/feedly-follow-circle-flat-white_2x.png',
+      height: '28px',
+      width: '28px',
+    },
+    'logo-white': {
+      img: 'http://s3.feedly.com/img/follows/feedly-follow-logo-white_2x.png',
+      height: '28px',
+      width: '28px',
+    },
+  };
+  const currentLayout = layoutSet[layout];
+  return (
+    <a href={`https://feedly.com/i/subscription/feed/${encodeURIComponent(feedurl)}`} target="blank">
+      <img
+        src={currentLayout.img}
+        alt="follow us in feedly"
+        style={{ width: width || currentLayout.width, height: height || currentLayout.height }}
+        {...others}
+      />
+    </a>
+  );
 }
 
-FeedlyButton.propTypes = {
-  feedurl: PropTypes.string.isRequired,
-  layout: PropTypes.string,
-};
-
 FeedlyButton.defaultProps = {
-  layout: 'rectangle-volume-small'
+  layout: 'rectangle-volume-small',
+  width: '',
+  height: '',
 };
-
-/*
-encoded
-http://cloud.feedly.com/#subscription%2Ffeed%2Fhttp%3A%2F%2Furaway.hatenablog.com%2Ffeed
-http://cloud.feedly.com/#subscription%2Ffeed%2Fhttp%3A%2F%2Furaway.hatenablog.com%2Ffeed
-decoded
-http://cloud.feedly.com/#subscription/feed/http://uraway.hatenablog.com/feed
-*/

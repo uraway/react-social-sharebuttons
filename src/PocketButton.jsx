@@ -1,54 +1,40 @@
+// @flow
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
-export default class PocketButton extends Component {
-  constructor(props) {
-    super(props);
-    this.state = ({ initialized: false });
-  }
+type Props = {
+  count?: 'horizontal' | 'vertical' | 'none',
+};
+
+export default class PocketButton extends Component<Props> {
+  node = null;
+
+  static defaultProps = {
+    count: '',
+  };
 
   componentDidMount() {
-    if (this.state.initialized) {
-      return;
-    }
-
-    const pocketbutton = this.node;
-    const pocketscript = document.createElement('script');
-    pocketscript.src = 'https://widgets.getpocket.com/v1/j/btn.js?v=1';
-    pocketscript.async = true;
-    pocketscript.id = 'pocket-btn-js';
-    pocketbutton.parentNode.appendChild(pocketscript);
-
-    this.initialized();
-  }
-
-  initialized() {
-    this.setState({ initialized: true });
+    const s = document.createElement('script');
+    s.src = 'https://widgets.getpocket.com/v1/j/btn.js?v=1';
+    s.async = true;
+    s.id = 'pocket-btn-js';
+    if (this.node && this.node.parentNode) this.node.parentNode.appendChild(s);
   }
 
   render() {
+    const { count, ...others } = this.props;
     return (
-      <a
-        ref={node => this.node = node}
-        data-pocket-label="pocket"
-        data-pocket-count={this.props.count}
-        className="pocket-btn"
-        data-lang="en"
-      >
-        Pocket
-      </a>
+      <div>
+        <a
+          ref={(node) => (this.node = node)}
+          data-pocket-label="pocket"
+          data-pocket-count={count}
+          className="pocket-btn"
+          data-lang="en"
+          {...others}
+        >
+          Pocket
+        </a>
+      </div>
     );
   }
 }
-
-PocketButton.propTypes = {
-  count: PropTypes.string
-};
-
-PocketButton.defaultProps = {
-  count: ''
-};
-
-/*
-<script type="text/javascript">!function(d,i){if(!d.getElementById(i)){var j=d.createElement("script");j.id=i;j.src="https://widgets.getpocket.com/v1/j/btn.js?v=1";var w=d.getElementById(i);d.body.appendChild(j);}}(document,"pocket-btn-js");</script>
-*/

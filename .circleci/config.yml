@@ -1,0 +1,60 @@
+version: 2.1
+
+executors:
+  default:
+    docker:
+      - image: circleci/node
+
+jobs:
+  test:
+    executor: default
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-dependencies-{{ checksum "yarn.lock" }}
+            - v1-dependencies-
+      - run: yarn install
+      - save_cache:
+          paths:
+            - node_modules
+          key: v1-dependencies-{{ checksum "yarn.lock" }}
+      - run: yarn lint --format junit --output-file ./reports/eslint.xml
+      - run: yarn flow
+      - store_test_results:
+          path: ./reports
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - .
+
+  deploy:
+    executor: default
+    steps:
+      - attach_workspace:
+          at: ~/project
+      - run: yarn build
+      - run: yarn flow gen-flow-files ./src/ --out-dir lib
+      - run:
+          name: Authenticate
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/project/.npmrc
+      - run:
+          name: Publish package
+          command: npm publish
+
+workflows:
+  version: 2
+  main:
+    jobs:
+      - test:
+          filters:
+            tags:
+              only: /^v.*/
+      - deploy:
+          requires:
+            - test
+          filters:
+            tags:
+              only: /^v.*/
+            branches:
+              ignore: /.*/
