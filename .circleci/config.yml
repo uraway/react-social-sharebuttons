@@ -3,7 +3,7 @@ version: 2.1
 executors:
   default:
     docker:
-      - image: circleci/node
+      - image: circleci/node:11.12.0
 
 jobs:
   test:
