@@ -11,13 +11,6 @@ type Props = {
 };
 
 export default class TwitterTweetButton extends Component<Props> {
-  static defaultProps = {
-    url: typeof window !== 'undefined' ? window.url : '',
-    text: '',
-    hashtags: '',
-    user: '',
-  };
-
   node = null;
 
   componentDidMount() {
@@ -51,3 +44,10 @@ export default class TwitterTweetButton extends Component<Props> {
     );
   }
 }
+
+TwitterTweetButton.defaultProps = {
+  url: typeof window !== 'undefined' ? window.url : '',
+  text: '',
+  hashtags: '',
+  user: '',
+};

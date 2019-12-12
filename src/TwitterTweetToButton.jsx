@@ -9,8 +9,6 @@ type Props = {
 };
 
 export default class TwitterTweetToButton extends Component<Props> {
-  static defaultProps = { text: '' };
-
   node = null;
 
   componentDidMount() {
@@ -40,3 +38,5 @@ export default class TwitterTweetToButton extends Component<Props> {
     );
   }
 }
+
+TwitterTweetToButton.defaultProps = { text: '' };

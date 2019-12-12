@@ -9,10 +9,6 @@ type Props = {
 };
 
 export default class TwitterHashtagButton extends Component<Props> {
-  static defaultProps = {
-    text: '',
-  };
-
   node = null;
 
   componentDidMount() {
@@ -42,3 +38,7 @@ export default class TwitterHashtagButton extends Component<Props> {
     );
   }
 }
+
+TwitterHashtagButton.defaultProps = {
+  text: '',
+};

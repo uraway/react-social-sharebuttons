@@ -9,8 +9,6 @@ type Props = {
 };
 
 export default class YouTubeButton extends Component<Props> {
-  static defaultProps = { layout: 'none', theme: 'none', count: 'show' };
-
   node = null;
 
   componentDidMount() {
@@ -35,3 +33,5 @@ export default class YouTubeButton extends Component<Props> {
     );
   }
 }
+
+YouTubeButton.defaultProps = { layout: 'none', theme: 'none', count: 'show' };
