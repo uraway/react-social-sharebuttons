@@ -1,7 +1,9 @@
-import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, text, select } from '@storybook/addon-knobs';
+import { text, select } from '@storybook/addon-knobs';
 import { YouTubeButton } from '../dist/index.esm.js';
+
+export default {
+  title: 'YouTubeButton',
+};
 
 const layoutOptions = {
   none: 'none',
@@ -18,13 +20,11 @@ const countOptions = {
   hidden: 'hidden',
 };
 
-export default storiesOf('YouTubeButton', module)
-  .addDecorator(withKnobs)
-  .add('configured', () => (
-    <YouTubeButton
-      channel={text('channel', 'GoogleDevelopers')}
-      layout={select('layout', layoutOptions)}
-      theme={select('theme', themeOptions)}
-      count={select('count', countOptions)}
-    />
-  ));
+export const Basic = () => (
+  <YouTubeButton
+    channel={text('channel', 'GoogleDevelopers')}
+    layout={select('layout', layoutOptions)}
+    theme={select('theme', themeOptions)}
+    count={select('count', countOptions)}
+  />
+);

@@ -1,7 +1,10 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, select } from '@storybook/addon-knobs';
+import { select } from '@storybook/addon-knobs';
 import { TumblrPostButton } from '../dist/index.esm.js';
+
+export default {
+  title: 'TumblrPostButton',
+};
 
 const colorOptions = {
   blue: 'blue',
@@ -15,8 +18,6 @@ const notesOptions = {
   right: 'right',
 };
 
-export default storiesOf('TumblrPostButton', module)
-  .addDecorator(withKnobs)
-  .add('configured', () => (
-    <TumblrPostButton color={select('color', colorOptions)} notes={select('notes', notesOptions)} />
-  ));
+export const Basic = () => (
+  <TumblrPostButton color={select('color', colorOptions)} notes={select('notes', notesOptions)} />
+);

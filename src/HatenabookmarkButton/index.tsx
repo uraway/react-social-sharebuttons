@@ -3,7 +3,7 @@ import { Component, createRef, RefObject } from 'react';
 export type HatenaBookmarkButtonProps = {
   url?: string;
   title?: string;
-  layout?: 'default' | 'simple-balloon' | 'standard-balloon';
+  layout?: 'basic-label-counter' | 'touch-counter' | 'vertical-large';
 };
 
 export default class HatenaBookmarkButton extends Component<HatenaBookmarkButtonProps> {

@@ -1,7 +1,10 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, text, select } from '@storybook/addon-knobs';
+import { text, select } from '@storybook/addon-knobs';
 import { FeedlyButton } from '../dist/index.esm.js';
+
+export default {
+  title: 'FeedlyButton',
+};
 
 const layoutOptions = {
   'rectangle-volume-big': 'rectangle-volume-big',
@@ -22,8 +25,6 @@ const layoutOptions = {
   'logo-white': 'logo-white',
 };
 
-export default storiesOf('FeedlyButton', module)
-  .addDecorator(withKnobs)
-  .add('configured', () => (
-    <FeedlyButton feedurl={text('feedurl', '')} layout={select('layout', layoutOptions, 'rectangle-volume-big')} />
-  ));
+export const Basic = () => (
+  <FeedlyButton feedurl={text('feedurl', '')} layout={select('layout', layoutOptions, 'rectangle-volume-big')} />
+);

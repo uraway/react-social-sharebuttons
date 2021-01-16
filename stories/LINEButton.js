@@ -1,7 +1,10 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, text, select } from '@storybook/addon-knobs';
+import { text, select } from '@storybook/addon-knobs';
 import { LINEButton } from '../dist/index.esm.js';
+
+export default {
+  title: 'LINEButton',
+};
 
 const imgOptions = {
   '20x20': '20x20',
@@ -11,6 +14,4 @@ const imgOptions = {
   '82x20': '82x20',
 };
 
-export default storiesOf('LINEButton', module)
-  .addDecorator(withKnobs)
-  .add('configured', () => <LINEButton text={text('text', '')} image={select('img', imgOptions, '20x20')} />);
+export const Basic = () => <LINEButton text={text('text', '')} image={select('img', imgOptions, '20x20')} />;

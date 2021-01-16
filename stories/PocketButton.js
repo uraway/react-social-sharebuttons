@@ -1,7 +1,10 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, select } from '@storybook/addon-knobs';
+import { select } from '@storybook/addon-knobs';
 import { PocketButton } from '../dist/index.esm.js';
+
+export default {
+  title: 'PocketButton',
+};
 
 const countOptions = {
   horizontal: 'horizontal',
@@ -9,6 +12,4 @@ const countOptions = {
   none: 'none',
 };
 
-export default storiesOf('PocketButton', module)
-  .addDecorator(withKnobs)
-  .add('configured', () => <PocketButton count={select('count', countOptions, 'horizontal')} />);
+export const Basic = () => <PocketButton count={select('count', countOptions, 'horizontal')} />;

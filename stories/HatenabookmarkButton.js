@@ -1,20 +1,21 @@
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, text, select } from '@storybook/addon-knobs';
+import { text, select } from '@storybook/addon-knobs';
 import { HatenabookmarkButton } from '../dist/index.esm.js';
 
-const layoutOptions = {
-  default: 'default',
-  'simple-balloon': 'simple-balloon',
-  'standard-balloon': 'standard-balloon',
+export default {
+  title: 'HatenabookmarkButton',
 };
 
-export default storiesOf('HatenabookmarkButton', module)
-  .addDecorator(withKnobs)
-  .add('configured', () => (
-    <HatenabookmarkButton
-      url={text('url', '')}
-      text={text('title', '')}
-      layout={select('layout', layoutOptions, 'default')}
-    />
-  ));
+const layoutOptions = {
+  'basic-label-counter': 'basic-label-counter',
+  'touch-counter': 'touch-counter',
+  'vertical-large': 'vertical-large',
+};
+
+export const Basic = () => (
+  <HatenabookmarkButton
+    url={text('url', '')}
+    text={text('title', '')}
+    layout={select('layout', layoutOptions, 'basic-label-counter')}
+  />
+);
