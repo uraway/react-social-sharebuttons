@@ -3,7 +3,7 @@
   "settings": {
     "import/core-modules": ["react"]
   },
-  "extends": ["airbnb", "prettier", "prettier/react", "plugin:flowtype/recommended"],
+  "extends": ["airbnb", "plugin:flowtype/recommended"],
   "env": {
     "browser": true,
     "es6": true,

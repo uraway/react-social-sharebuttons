@@ -2,7 +2,7 @@ import external from 'rollup-plugin-peer-deps-external';
 import del from 'rollup-plugin-delete';
 import pkg from './package.json';
 import { nodeResolve } from '@rollup/plugin-node-resolve';
-import { babel, getBabelOutputPlugin } from '@rollup/plugin-babel';
+import { babel } from '@rollup/plugin-babel';
 import flow from 'rollup-plugin-flow'
 
 export default {
