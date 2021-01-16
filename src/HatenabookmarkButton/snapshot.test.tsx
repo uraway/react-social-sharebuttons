@@ -7,6 +7,6 @@ it('renders correctly with required props', () => {
 });
 
 it('renders correctly with other props', () => {
-  const tree = renderer.create(<HatenabookmarkButton url="url" title="title" layout="standard-balloon" />).toJSON();
+  const tree = renderer.create(<HatenabookmarkButton url="url" title="title" layout="basic-label-counter" />).toJSON();
   expect(tree).toMatchSnapshot();
 });
