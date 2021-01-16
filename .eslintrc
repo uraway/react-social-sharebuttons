@@ -10,9 +10,8 @@
     "node": true,
     "jest": true
   },
-  "plugins": ["prettier", "flowtype"],
+  "plugins": ["flowtype"],
   "rules": {
-    "prettier/prettier": "error",
     "flowtype/define-flow-type": 1,
     "flowtype/use-flow-type": 1,
     "comma-dangle": 0,
