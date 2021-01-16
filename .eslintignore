@@ -3,3 +3,5 @@ lib/
 dist/
 node_modules/
 flow-typed/
+rollup.config.js
+stories

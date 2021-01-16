@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly with other props 1`] = `
+<a
+  className="twitter-follow-button"
+  data-show-count={false}
+  href="https://twitter.com/user"
+>
+  Follow @
+  user
+</a>
+`;
+
+exports[`renders correctly with required props 1`] = `
+<a
+  className="twitter-follow-button"
+  data-show-count={true}
+  href="https://twitter.com/user"
+>
+  Follow @
+  user
+</a>
+`;

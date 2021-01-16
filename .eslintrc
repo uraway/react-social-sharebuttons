@@ -1,23 +1,31 @@
 {
-  "parser": "babel-eslint",
-  "settings": {
-    "import/core-modules": ["react"]
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "plugin:react/recommended",
+    "airbnb",
+    "airbnb/hooks",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:import/typescript",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking"
+  ],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2020,
+    "tsconfigRootDir": ".",
+    "project": ["tsconfig.json"]
   },
-  "extends": ["airbnb", "plugin:flowtype/recommended"],
   "env": {
     "browser": true,
     "es6": true,
     "node": true,
     "jest": true
   },
-  "plugins": ["flowtype"],
   "rules": {
-    "flowtype/define-flow-type": 1,
-    "flowtype/use-flow-type": 1,
-    "comma-dangle": 0,
-    "new-cap": 0,
-    "no-nested-ternary": 0,
-    "no-shadow": 0,
     "react/jsx-no-bind": [
       1,
       {
@@ -26,12 +34,26 @@
         "allowBind": true
       }
     ],
-    "max-len": 0,
-    "no-console": 0,
-    "no-return-assign": 0,
+    "object-curly-newline": 0,
     "react/prefer-stateless-function": 0,
-    "import/no-extraneous-dependencies": ["error", { "devDependencies": ["example/*", "stories/*", "**/*.test.js"] }],
-		"no-param-reassign": [2, { "props": false }],
-		"react/jsx-filename-extension": 0
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": ["example/*", "stories/*", "**/*.test.*"] }],
+    // for jsx: react-jsx on tsconfig
+    "react/react-in-jsx-scope": 0,
+    // Allows .tsx
+    "react/jsx-filename-extension": 0,
+    // static defaultProps in the class body
+    "react/static-property-placement": 0,
+    "react/jsx-props-no-spreading": 0,
+    "react/jsx-one-expression-per-line": 0,
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
+      }
+    ]
   }
 }

@@ -4,14 +4,16 @@
   "description": "Simple React components for Social Share Buttons.",
   "main": "dist/index.cjs.js",
   "module": "dist/index.esm.js",
-  "source": "src/index.js",
+  "source": "src/index.ts",
+  "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "rollup -c",
+    "build": "rollup -c && tsc --emitDeclarationOnly",
     "build-watch": "rollup -c -w",
     "lint": "run-p lint:*",
+    "lint:typecheck": "tsc",
     "lint:eslint": "eslint src",
     "lint:prettier": "prettier src --check",
     "fix": "run-s fix:eslint fix:prettier",
@@ -67,22 +69,30 @@
     "@babel/core": "^7.12.10",
     "@babel/plugin-proposal-class-properties": "^7.12.1",
     "@babel/preset-env": "^7.12.11",
-    "@babel/preset-flow": "^7.12.1",
     "@babel/preset-react": "^7.12.10",
     "@rollup/plugin-babel": "^5.2.2",
+    "@rollup/plugin-commonjs": "^17.0.0",
     "@rollup/plugin-node-resolve": "^11.1.0",
+    "@rollup/plugin-typescript": "^8.1.0",
     "@storybook/addon-knobs": "^4.0.4",
     "@storybook/react": "^4.0.4",
     "@storybook/storybook-deployer": "^2.3.0",
+    "@types/jest": "^26.0.20",
+    "@types/react": "^17.0.0",
+    "@types/react-test-renderer": "^17.0.0",
+    "@typescript-eslint/eslint-plugin": "^4.13.0",
+    "@typescript-eslint/parser": "^4.13.0",
     "babel-eslint": "^10.1.0",
-    "eslint": "7.18.0",
-    "eslint-config-airbnb": "18.2.1",
-    "eslint-plugin-flowtype": "5.2.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-jsx-a11y": "^6.1.2",
-    "eslint-plugin-react": "^7.11.1",
-    "flow-bin": "^0.85.0",
+    "babel-loader": "^8.2.2",
+    "eslint": "^7.18.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "husky": "^4.3.8",
     "jest": "^26.6.3",
+    "lint-staged": "^10.5.3",
     "npm-run-all": "^4.1.5",
     "parcel-bundler": "^1.12.4",
     "prettier": "^2.2.1",
@@ -92,6 +102,40 @@
     "rollup": "^2.36.1",
     "rollup-plugin-delete": "^2.0.0",
     "rollup-plugin-flow": "^1.1.1",
-    "rollup-plugin-peer-deps-external": "^2.2.4"
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-terser": "^7.0.2",
+    "ts-jest": "^26.4.4",
+    "typescript": "4.2.0-dev.20210115"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "js",
+      "tsx",
+      "jsx"
+    ],
+    "transform": {
+      "^.+\\.tsx": "ts-jest"
+    },
+    "globals": {
+      "ts-jest": {
+        "tsconfig": "tsconfig.json"
+      }
+    },
+    "testMatch": [
+      "**/*.test.ts",
+      "**/*.test.tsx"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "prettier src --write",
+      "git add"
+    ]
   }
 }
