@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="fb-like"
+  data-action="like"
+  data-href="http://localhost/"
+  data-layout="standard"
+  data-share={false}
+  data-show-faces={false}
+/>
+`;
+
+exports[`renders correctly with props 1`] = `
+<div
+  className="fb-like"
+  data-action="like"
+  data-href="url"
+  data-layout="standard"
+  data-share={true}
+  data-show-faces={false}
+/>
+`;

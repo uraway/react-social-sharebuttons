@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly with other props 1`] = `
+<script
+  data-counter="right"
+  data-url="url"
+  type="IN/Share"
+/>
+`;
+
+exports[`renders correctly with required props 1`] = `
+<script
+  data-counter=""
+  data-url="http://localhost/"
+  type="IN/Share"
+/>
+`;

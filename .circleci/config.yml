@@ -35,7 +35,6 @@ jobs:
       - attach_workspace:
           at: ~/project
       - run: yarn build
-      - run: yarn flow gen-flow-files ./src/ --out-dir dist
       - run:
           name: Authenticate
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/project/.npmrc

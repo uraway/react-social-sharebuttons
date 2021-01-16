@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly with other props 1`] = `
+<a
+  className="twitter-mention-button"
+  href="https://twitter.com/intent/tweet?screen_name=user&text=text"
+>
+  Tweet to 
+  user
+</a>
+`;
+
+exports[`renders correctly with required props 1`] = `
+<a
+  className="twitter-mention-button"
+  href="https://twitter.com/intent/tweet?screen_name=user&text="
+>
+  Tweet to 
+  user
+</a>
+`;

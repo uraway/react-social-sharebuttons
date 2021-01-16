@@ -1,7 +1,5 @@
-// @flow
 import React from 'react';
-import { storiesOf } from '@storybook/react';
-import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
+import { text, select, boolean } from '@storybook/addon-knobs';
 import { FacebookButton } from '../dist/index.esm.js';
 
 const layoutOptions = {
@@ -11,13 +9,15 @@ const layoutOptions = {
   button: 'button',
 };
 
-export default storiesOf('FacebookButton', module)
-  .addDecorator(withKnobs)
-  .add('configured', () => (
-    <FacebookButton
-      url={text('url', '')}
-      layout={select('layout', layoutOptions, 'standard')}
-      showFaces={boolean('showFaces', false)}
-      share={boolean('share', false)}
-    />
-  ));
+export default {
+  title: 'FacebookButton',
+};
+
+export const Basic = () => (
+  <FacebookButton
+    url={text('url', '')}
+    layout={select('layout', layoutOptions, 'standard')}
+    showFaces={boolean('showFaces', false)}
+    share={boolean('share', false)}
+  />
+);
