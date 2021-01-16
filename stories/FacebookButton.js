@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, select, boolean } from '@storybook/addon-knobs';
-import { FacebookButton } from '../dist/index.esm.js';
+import { FacebookButton } from 'react-social-sharebuttons';
 
 const layoutOptions = {
   standard: 'standard',
