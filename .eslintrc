@@ -3,15 +3,15 @@
   "settings": {
     "import/core-modules": ["react"]
   },
-  "extends": ["airbnb", "prettier", "prettier/react", "plugin:flowtype/recommended"],
+  "extends": ["airbnb", "plugin:flowtype/recommended"],
   "env": {
     "browser": true,
     "es6": true,
-    "node": true
+    "node": true,
+    "jest": true
   },
-  "plugins": ["prettier", "flowtype"],
+  "plugins": ["flowtype"],
   "rules": {
-    "prettier/prettier": "error",
     "flowtype/define-flow-type": 1,
     "flowtype/use-flow-type": 1,
     "comma-dangle": 0,
@@ -30,7 +30,7 @@
     "no-console": 0,
     "no-return-assign": 0,
     "react/prefer-stateless-function": 0,
-    "import/no-extraneous-dependencies": ["error", { "devDependencies": ["example/*", "stories/*"] }],
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": ["example/*", "stories/*", "**/*.test.js"] }],
 		"no-param-reassign": [2, { "props": false }],
 		"react/jsx-filename-extension": 0
   }

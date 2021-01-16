@@ -3,7 +3,7 @@ version: 2.1
 executors:
   default:
     docker:
-      - image: circleci/node:11.12.0
+      - image: cimg/node:14.15.4
 
 jobs:
   test:
@@ -19,8 +19,9 @@ jobs:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "yarn.lock" }}
-      - run: yarn lint --format junit --output-file ./reports/eslint.xml
-      - run: yarn flow
+      - run: yarn build
+      - run: yarn lint
+      - run: yarn test
       - store_test_results:
           path: ./reports
       - persist_to_workspace:
@@ -34,7 +35,7 @@ jobs:
       - attach_workspace:
           at: ~/project
       - run: yarn build
-      - run: yarn flow gen-flow-files ./src/ --out-dir lib
+      - run: yarn flow gen-flow-files ./src/ --out-dir dist
       - run:
           name: Authenticate
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/project/.npmrc

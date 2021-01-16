@@ -2,7 +2,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
-import YouTubeButton from '../src/YouTubeButton';
+import { YouTubeButton } from '../dist/index.esm.js';
 
 const layoutOptions = {
   none: 'none',

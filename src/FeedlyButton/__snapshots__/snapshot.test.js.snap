@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly with other props 1`] = `
+<a
+  href="https://feedly.com/i/subscription/feed/undefined"
+  target="blank"
+>
+  <img
+    alt="follow us in feedly"
+    src="http://s3.feedly.com/img/follows/feedly-follow-square-flat-white_2x.png"
+    style={
+      Object {
+        "height": "28px",
+        "width": "28px",
+      }
+    }
+    url="url"
+  />
+</a>
+`;
+
+exports[`renders correctly with required props 1`] = `
+<a
+  href="https://feedly.com/i/subscription/feed/url"
+  target="blank"
+>
+  <img
+    alt="follow us in feedly"
+    src="http://s3.feedly.com/img/follows/feedly-follow-rectangle-volume-small_2x.png"
+    style={
+      Object {
+        "height": "20px",
+        "width": "66px",
+      }
+    }
+  />
+</a>
+`;

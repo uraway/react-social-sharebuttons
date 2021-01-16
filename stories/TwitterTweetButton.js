@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text } from '@storybook/addon-knobs';
-import TwitterTweetButton from '../src/TwitterTweetButton';
+import { TwitterTweetButton } from '../dist/index.esm.js';
 
 export default storiesOf('TwitterTweetButton', module)
   .addDecorator(withKnobs)

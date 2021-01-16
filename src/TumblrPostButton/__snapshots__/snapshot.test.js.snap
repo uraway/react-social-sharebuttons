@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly with other props 1`] = `
+<div>
+  <a
+    className="tumblr-share-button"
+    data-color="black"
+    data-notes="right"
+    href="https://embed.tumblr.com/share"
+  >
+    Tumber Post Button
+  </a>
+</div>
+`;
+
+exports[`renders correctly with required props 1`] = `
+<div>
+  <a
+    className="tumblr-share-button"
+    data-color="blue"
+    data-notes="none"
+    href="https://embed.tumblr.com/share"
+  >
+    Tumber Post Button
+  </a>
+</div>
+`;

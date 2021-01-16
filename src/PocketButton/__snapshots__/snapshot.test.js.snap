@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly with other props 1`] = `
+<div>
+  <a
+    className="pocket-btn"
+    data-lang="en"
+    data-pocket-count=""
+    data-pocket-label="pocket"
+    url="vertical"
+  >
+    Pocket
+  </a>
+</div>
+`;
+
+exports[`renders correctly with required props 1`] = `
+<div>
+  <a
+    className="pocket-btn"
+    data-lang="en"
+    data-pocket-count=""
+    data-pocket-label="pocket"
+  >
+    Pocket
+  </a>
+</div>
+`;

@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly with other props 1`] = `
+<div>
+  <a
+    className="hatena-bookmark-button"
+    data-hatena-bookmark-lang="ja"
+    data-hatena-bookmark-layout="standard-balloon"
+    data-hatena-bookmark-title="title"
+    href="http://b.hatena.ne.jp/entry/url"
+    title="このエントリーをはてなブックマークに追加"
+  >
+    <img
+      alt="このエントリーをはてなブックマークに追加"
+      src="https://b.st-hatena.com/images/entry-button/button-only@2x.png"
+      style={
+        Object {
+          "border": "none",
+          "height": 20,
+          "width": 20,
+        }
+      }
+    />
+  </a>
+</div>
+`;
+
+exports[`renders correctly with required props 1`] = `
+<div>
+  <a
+    className="hatena-bookmark-button"
+    data-hatena-bookmark-lang="ja"
+    data-hatena-bookmark-layout=""
+    data-hatena-bookmark-title=""
+    href="http://b.hatena.ne.jp/entry/"
+    title="このエントリーをはてなブックマークに追加"
+  >
+    <img
+      alt="このエントリーをはてなブックマークに追加"
+      src="https://b.st-hatena.com/images/entry-button/button-only@2x.png"
+      style={
+        Object {
+          "border": "none",
+          "height": 20,
+          "width": 20,
+        }
+      }
+    />
+  </a>
+</div>
+`;
