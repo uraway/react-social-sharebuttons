@@ -5,7 +5,7 @@
 import LINEButton from './LINEButton';
 import HatenabookmarkButton from './HatenabookmarkButton';
 import FeedlyButton from './FeedlyButton';
-import LinkedinButton from './LinkedinButton';
+import LinkedInButton from './LinkedInButton';
 import TumblrPostButton from './TumblrPostButton';
 import FacebookButton from './FacebookButton';
 import TwitterTweetButton from './TwitterTweetButton';
@@ -19,7 +19,7 @@ export {
   LINEButton,
   HatenabookmarkButton,
   FeedlyButton,
-  LinkedinButton,
+  LinkedInButton,
   TumblrPostButton,
   FacebookButton,
   TwitterTweetButton,

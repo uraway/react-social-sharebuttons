@@ -7,7 +7,8 @@
   "env": {
     "browser": true,
     "es6": true,
-    "node": true
+    "node": true,
+    "jest": true
   },
   "plugins": ["prettier", "flowtype"],
   "rules": {
@@ -30,7 +31,7 @@
     "no-console": 0,
     "no-return-assign": 0,
     "react/prefer-stateless-function": 0,
-    "import/no-extraneous-dependencies": ["error", { "devDependencies": ["example/*", "stories/*"] }],
+    "import/no-extraneous-dependencies": ["error", { "devDependencies": ["example/*", "stories/*", "**/*.test.js"] }],
 		"no-param-reassign": [2, { "props": false }],
 		"react/jsx-filename-extension": 0
   }

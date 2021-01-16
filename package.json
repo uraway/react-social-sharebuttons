@@ -2,11 +2,12 @@
   "name": "react-social-sharebuttons",
   "version": "3.0.0-alpha2",
   "description": "Simple React components for Social Share Buttons.",
-  "main": "lib/main.js",
+  "main": "lib/index.js",
   "scripts": {
-    "build": "parcel build src/main.jsx -d lib",
-    "start": "parcel watch src/main.jsx -d lib",
+    "build": "parcel build src/index.jsx -d lib",
+    "start": "parcel watch src/index.jsx -d lib",
     "lint": "eslint --ext .js,.jsx ./",
+    "test": "jest",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "deploy": "storybook-to-ghpages"
   },
@@ -67,9 +68,11 @@
     "eslint-plugin-prettier": "^3.0.0",
     "eslint-plugin-react": "^7.11.1",
     "flow-bin": "^0.85.0",
+    "jest": "^26.6.3",
     "parcel-bundler": "^1.10.3",
     "prettier": "^1.15.1",
-    "react": "^16.6.1",
-    "react-dom": "^16.6.1"
+    "react": "16.9",
+    "react-dom": "16.9",
+    "react-test-renderer": "^17.0.1"
   }
 }
