@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
-import HatenabookmarkButton from '../src/HatenabookmarkButton';
+import { HatenabookmarkButton } from '../dist/index.esm.js';
 
 const layoutOptions = {
   default: 'default',

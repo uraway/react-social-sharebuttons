@@ -2,7 +2,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
-import FeedlyButton from '../src/FeedlyButton';
+import { FeedlyButton } from '../dist/index.esm.js';
 
 const layoutOptions = {
   'rectangle-volume-big': 'rectangle-volume-big',

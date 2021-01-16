@@ -3,7 +3,7 @@ version: 2.1
 executors:
   default:
     docker:
-      - image: circleci/node:11.12.0
+      - image: cimg/node:14
 
 jobs:
   test:
@@ -20,6 +20,7 @@ jobs:
             - node_modules
           key: v1-dependencies-{{ checksum "yarn.lock" }}
       - run: yarn lint --format junit --output-file ./reports/eslint.xml
+      - run: yarn test
       - run: yarn flow
       - store_test_results:
           path: ./reports

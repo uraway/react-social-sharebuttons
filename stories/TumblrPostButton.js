@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, select } from '@storybook/addon-knobs';
-import TumblrPostButton from '../src/TumblrPostButton';
+import { TumblrPostButton } from '../dist/index.esm.js';
 
 const colorOptions = {
   blue: 'blue',

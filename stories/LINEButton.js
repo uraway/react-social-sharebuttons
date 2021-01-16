@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { withKnobs, text, select } from '@storybook/addon-knobs';
-import LINEButton from '../src/LINEButton';
+import { LINEButton } from '../dist/index.esm.js';
 
 const imgOptions = {
   '20x20': '20x20',
