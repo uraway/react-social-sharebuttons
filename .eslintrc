@@ -1,15 +1,14 @@
 {
   "parser": "@typescript-eslint/parser",
   "extends": [
-    "plugin:react/recommended",
-    "airbnb",
-    "airbnb/hooks",
-    "plugin:import/errors",
-    "plugin:import/warnings",
-    "plugin:import/typescript",
+    "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:@typescript-eslint/recommended-requiring-type-checking"
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings"
   ],
   "parserOptions": {
     "ecmaFeatures": {
@@ -25,35 +24,18 @@
     "node": true,
     "jest": true
   },
+  "plugins": ["@typescript-eslint", "react", "import"],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx", ".json"]
+      },
+      "react": {
+        "version": "detect"
+      }
+    }
+  },
   "rules": {
-    "react/jsx-no-bind": [
-      1,
-      {
-        "ignoreRefs": false,
-        "allowArrowFunctions": true,
-        "allowBind": true
-      }
-    ],
-    "object-curly-newline": 0,
-    "react/prefer-stateless-function": 0,
-    "import/no-extraneous-dependencies": ["error", { "devDependencies": ["example/*", "stories/*", "**/*.test.*"] }],
-    // for jsx: react-jsx on tsconfig
-    "react/react-in-jsx-scope": 0,
-    // Allows .tsx
-    "react/jsx-filename-extension": 0,
-    // static defaultProps in the class body
-    "react/static-property-placement": 0,
-    "react/jsx-props-no-spreading": 0,
-    "react/jsx-one-expression-per-line": 0,
-    "import/extensions": [
-      "error",
-      "ignorePackages",
-      {
-        "js": "never",
-        "jsx": "never",
-        "ts": "never",
-        "tsx": "never"
-      }
-    ]
+    "react/react-in-jsx-scope": 0
   }
 }
