@@ -30,7 +30,7 @@ exports[`renders correctly with required props 1`] = `
   <a
     className="hatena-bookmark-button"
     data-hatena-bookmark-lang="ja"
-    data-hatena-bookmark-layout=""
+    data-hatena-bookmark-layout="basic-label-counter"
     data-hatena-bookmark-title=""
     href="http://b.hatena.ne.jp/entry/http://localhost/"
     title="このエントリーをはてなブックマークに追加"

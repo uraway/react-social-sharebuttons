@@ -15,7 +15,7 @@ exports[`renders correctly with required props 1`] = `
 <a
   className="pocket-btn"
   data-lang="en"
-  data-pocket-count=""
+  data-pocket-count="horizontal"
   data-pocket-label="pocket"
 >
   Pocket

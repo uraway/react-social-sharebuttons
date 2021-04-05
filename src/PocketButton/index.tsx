@@ -22,4 +22,8 @@ const PocketButton: FC<PocketButtonProps> = (props) => {
   );
 };
 
+PocketButton.defaultProps = {
+  count: 'horizontal',
+};
+
 export default PocketButton;

@@ -27,7 +27,7 @@ const LinkedInButton: FC<LinkedInButtonProps> = (props) => {
 
 LinkedInButton.defaultProps = {
   url: typeof window !== 'undefined' ? window.location.href : '',
-  counter: undefined,
+  counter: 'right',
   lang: 'ja',
 };
 
