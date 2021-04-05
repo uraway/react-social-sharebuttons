@@ -1,4 +1,11 @@
 module.exports = {
-  presets: ["@babel/env", "@babel/preset-react", "@babel/preset-flow"],
-  plugins: ["@babel/plugin-proposal-class-properties"]
-}
+  presets: [
+    [
+      '@babel/preset-env',
+      {
+        useBuiltIns: 'entry',
+      },
+    ],
+    '@babel/preset-react',
+  ],
+};
