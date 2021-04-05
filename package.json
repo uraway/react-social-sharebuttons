@@ -61,8 +61,8 @@
     "url": "https://github.com/uraway/react-social-sharebuttons/issues"
   },
   "peerDependencies": {
-    "react": "16",
-    "react-dom": "16"
+    "react": "16 || 17",
+    "react-dom": "16 || 17"
   },
   "devDependencies": {
     "@babel/cli": "7.13.14",

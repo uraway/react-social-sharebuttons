@@ -1,42 +1,30 @@
-import { Component, createRef, RefObject } from 'react';
+import { FC, useEffect } from 'react';
 
 export type TumblrPostButtonProps = {
   color?: 'blue' | 'white' | 'black';
   notes?: 'none' | 'top' | 'right';
 };
 
-export default class TumblrPostButton extends Component<TumblrPostButtonProps> {
-  ref: RefObject<HTMLAnchorElement>;
+const TumblrPostButton: FC<TumblrPostButtonProps> = (props) => {
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://secure.assets.tumblr.com/share-button.js';
+    script.id = 'tumblr-js';
+    document.getElementsByTagName('head')[0]?.appendChild(script);
 
-  static defaultProps = {
-    color: 'blue',
-    notes: 'none',
-  };
+    return () => script?.remove();
+  }, []);
+  const { color, notes } = props;
+  return (
+    <a className="tumblr-share-button" data-color={color} data-notes={notes} href="https://embed.tumblr.com/share">
+      Tumber Post Button
+    </a>
+  );
+};
 
-  constructor(props: TumblrPostButtonProps) {
-    super(props);
-    this.ref = createRef();
-  }
+TumblrPostButton.defaultProps = {
+  color: 'blue',
+  notes: 'none',
+};
 
-  componentDidMount(): void {
-    const s = document.createElement('script');
-    s.src = 'https://secure.assets.tumblr.com/share-button.js';
-    s.id = 'tumblr-js';
-    if (this.ref.current?.parentNode) this.ref.current.parentNode.appendChild(s);
-  }
-
-  render(): JSX.Element {
-    const { color, notes } = this.props;
-    return (
-      <a
-        ref={this.ref}
-        className="tumblr-share-button"
-        data-color={color}
-        data-notes={notes}
-        href="https://embed.tumblr.com/share"
-      >
-        Tumber Post Button
-      </a>
-    );
-  }
-}
+export default TumblrPostButton;

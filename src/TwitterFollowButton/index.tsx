@@ -1,4 +1,4 @@
-import { Component, createRef, RefObject } from 'react';
+import { FC, useEffect } from 'react';
 
 declare let twttr: {
   widgets: {
@@ -6,46 +6,39 @@ declare let twttr: {
   };
 };
 
-type TwitterFollowButtonProps = {
+export type TwitterFollowButtonProps = {
   user: string;
   showCount?: boolean;
 };
 
-export default class TwitterFollowButton extends Component<TwitterFollowButtonProps> {
-  ref: RefObject<HTMLAnchorElement>;
+const TwitterFollowButton: FC<TwitterFollowButtonProps> = (props) => {
+  useEffect(() => {
+    let script: HTMLScriptElement;
 
-  static defaultProps = {
-    showCount: true,
-  };
-
-  constructor(props: TwitterFollowButtonProps) {
-    super(props);
-    this.ref = createRef();
-  }
-
-  componentDidMount(): void {
     if (typeof twttr === 'undefined') {
-      const s = document.createElement('script');
-      s.src = '//platform.twitter.com/widgets.js';
-      s.async = true;
-      s.id = 'twitter-wjs';
-      if (this.ref.current?.parentNode) this.ref.current.parentNode.appendChild(s);
+      script = document.createElement('script');
+      script.src = 'https://platform.twitter.com/widgets.js';
+      script.async = true;
+      script.id = 'twitter-wjs';
+      document.getElementsByTagName('head')[0]?.appendChild(script);
     } else {
       twttr.widgets.load();
     }
-  }
 
-  render(): JSX.Element {
-    const { user, showCount } = this.props;
-    return (
-      <a
-        ref={this.ref}
-        href={`https://twitter.com/${user}`}
-        className="twitter-follow-button"
-        data-show-count={showCount}
-      >
-        Follow @{user}
-      </a>
-    );
-  }
-}
+    return () => script?.remove();
+  }, [props]);
+
+  const { user, showCount } = props;
+
+  return (
+    <a href={`https://twitter.com/${user}`} className="twitter-follow-button" data-show-count={showCount}>
+      Follow @{user}
+    </a>
+  );
+};
+
+TwitterFollowButton.defaultProps = {
+  showCount: true,
+};
+
+export default TwitterFollowButton;

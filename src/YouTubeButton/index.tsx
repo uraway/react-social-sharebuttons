@@ -1,39 +1,25 @@
-import { Component, createRef, RefObject } from 'react';
+import { FC, useEffect } from 'react';
 
-type YouTubeButtonProps = {
+export type YouTubeButtonProps = {
   channel: string;
   layout?: 'none' | 'full';
   theme?: 'none' | 'dark';
   count?: 'show' | 'hidden';
 };
 
-export default class YouTubeButton extends Component<YouTubeButtonProps> {
-  static defaultProps = { layout: 'none', theme: 'none', count: 'show' };
+const YouTubeButton: FC<YouTubeButtonProps> = (props) => {
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://apis.google.com/js/platform.js';
+    document.getElementsByTagName('head')[0]?.appendChild(script);
+  }, []);
 
-  ref: RefObject<HTMLDivElement>;
+  const { channel, layout, theme, count } = props;
+  return (
+    <div className="g-ytsubscribe" data-channel={channel} data-layout={layout} data-theme={theme} data-count={count} />
+  );
+};
 
-  constructor(props: YouTubeButtonProps) {
-    super(props);
-    this.ref = createRef();
-  }
+YouTubeButton.defaultProps = { layout: 'none', theme: 'none', count: 'show' };
 
-  componentDidMount(): void {
-    const s = document.createElement('script');
-    s.src = 'https://apis.google.com/js/platform.js';
-    if (this.ref.current?.parentNode) this.ref.current.parentNode.appendChild(s);
-  }
-
-  render(): JSX.Element {
-    const { channel, layout, theme, count } = this.props;
-    return (
-      <div
-        ref={this.ref}
-        className="g-ytsubscribe"
-        data-channel={channel}
-        data-layout={layout}
-        data-theme={theme}
-        data-count={count}
-      />
-    );
-  }
-}
+export default YouTubeButton;
