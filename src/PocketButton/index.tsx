@@ -1,42 +1,25 @@
-import { Component, createRef, RefObject } from 'react';
+import { FC, useEffect } from 'react';
 
 export type PocketButtonProps = {
   count?: 'horizontal' | 'vertical' | 'none';
 };
 
-export default class PocketButton extends Component<PocketButtonProps> {
-  ref: RefObject<HTMLAnchorElement>;
+const PocketButton: FC<PocketButtonProps> = (props) => {
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://widgets.getpocket.com/v1/j/btn.js?v=1';
+    script.async = true;
+    script.id = 'pocket-btn-js';
+    document.getElementsByTagName('head')[0]?.appendChild(script);
 
-  static defaultProps = {
-    count: '',
-  };
+    return () => script?.remove();
+  }, []);
+  const { count, ...others } = props;
+  return (
+    <a data-pocket-label="pocket" data-pocket-count={count} className="pocket-btn" data-lang="en" {...others}>
+      Pocket
+    </a>
+  );
+};
 
-  constructor(props: PocketButtonProps) {
-    super(props);
-    this.ref = createRef();
-  }
-
-  componentDidMount(): void {
-    const s = document.createElement('script');
-    s.src = 'https://widgets.getpocket.com/v1/j/btn.js?v=1';
-    s.async = true;
-    s.id = 'pocket-btn-js';
-    if (this.ref.current?.parentNode) this.ref.current.parentNode.appendChild(s);
-  }
-
-  render(): JSX.Element {
-    const { count, ...others } = this.props;
-    return (
-      <a
-        ref={this.ref}
-        data-pocket-label="pocket"
-        data-pocket-count={count}
-        className="pocket-btn"
-        data-lang="en"
-        {...others}
-      >
-        Pocket
-      </a>
-    );
-  }
-}
+export default PocketButton;

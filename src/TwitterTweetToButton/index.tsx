@@ -1,4 +1,4 @@
-import { Component, createRef, RefObject } from 'react';
+import { FC, useEffect } from 'react';
 
 declare let twttr: {
   widgets: {
@@ -6,43 +6,37 @@ declare let twttr: {
   };
 };
 
-type TwitterTweetToButtonProps = {
+export type TwitterTweetToButtonProps = {
   user: string;
   text?: string;
 };
 
-export default class TwitterTweetToButton extends Component<TwitterTweetToButtonProps> {
-  static defaultProps = { text: '' };
+const TwitterTweetToButton: FC<TwitterTweetToButtonProps> = (props) => {
+  useEffect(() => {
+    let script: HTMLScriptElement;
 
-  ref: RefObject<HTMLAnchorElement>;
-
-  constructor(props: TwitterTweetToButtonProps) {
-    super(props);
-    this.ref = createRef();
-  }
-
-  componentDidMount(): void {
     if (typeof twttr === 'undefined') {
-      const s = document.createElement('script');
-      s.src = '//platform.twitter.com/widgets.js';
-      s.async = true;
-      s.id = 'twitter-wjs';
-      if (this.ref.current?.parentNode) this.ref.current.parentNode.appendChild(s);
+      script = document.createElement('script');
+      script.src = '//platform.twitter.com/widgets.js';
+      script.async = true;
+      script.id = 'twitter-wjs';
+      document.getElementsByTagName('head')[0]?.appendChild(script);
     } else {
       twttr.widgets.load();
     }
-  }
 
-  render(): JSX.Element {
-    const { user, text } = this.props;
-    return (
-      <a
-        ref={this.ref}
-        href={`https://twitter.com/intent/tweet?screen_name=${user}&text=${text || ''}`}
-        className="twitter-mention-button"
-      >
-        Tweet to {user}
-      </a>
-    );
-  }
-}
+    return () => script?.remove();
+  }, []);
+
+  const { user, text } = props;
+  return (
+    <a
+      href={`https://twitter.com/intent/tweet?screen_name=${user}&text=${text || ''}`}
+      className="twitter-mention-button"
+    >
+      Tweet to {user}
+    </a>
+  );
+};
+
+export default TwitterTweetToButton;

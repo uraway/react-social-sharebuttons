@@ -1,4 +1,4 @@
-import { Component, createRef, RefObject } from 'react';
+import { FC, useEffect } from 'react';
 
 declare let twttr: {
   widgets: {
@@ -6,54 +6,50 @@ declare let twttr: {
   };
 };
 
-type TwitterTweetButtonProps = {
+export type TwitterTweetButtonProps = {
   url?: string;
   text?: string;
   hashtags?: string;
   user?: string;
 };
 
-export default class TwitterTweetButton extends Component<TwitterTweetButtonProps> {
-  ref: RefObject<HTMLAnchorElement>;
+const TwitterTweetButton: FC<TwitterTweetButtonProps> = (props) => {
+  useEffect(() => {
+    let script: HTMLScriptElement;
 
-  static defaultProps = {
-    url: typeof window !== 'undefined' ? window.location.href : '',
-    text: '',
-    hashtags: '',
-    user: '',
-  };
-
-  constructor(props: TwitterTweetButtonProps) {
-    super(props);
-    this.ref = createRef();
-  }
-
-  componentDidMount(): void {
     if (typeof twttr === 'undefined') {
-      const s = document.createElement('script');
-      s.src = '//platform.twitter.com/widgets.js';
-      s.async = true;
-      s.id = 'twitter-wjs';
-      if (this.ref.current?.parentNode) this.ref.current.parentNode.appendChild(s);
+      script = document.createElement('script');
+      script.src = '//platform.twitter.com/widgets.js';
+      script.async = true;
+      script.id = 'twitter-wjs';
+      document.getElementsByTagName('head')[0]?.appendChild(script);
     } else {
       twttr.widgets.load();
     }
-  }
 
-  render(): JSX.Element {
-    const { url, text, user, hashtags } = this.props;
-    return (
-      <a
-        ref={this.ref}
-        href="https://twitter.com/share"
-        className="twitter-share-button"
-        data-url={url}
-        data-text={text}
-        data-via={user}
-        data-hashtags={hashtags}
-      >
-        Tweet
-      </a>
-    );
-  }
-}
+    return () => script?.remove();
+  }, []);
+
+  const { url, text, user, hashtags } = props;
+  return (
+    <a
+      href="https://twitter.com/share"
+      className="twitter-share-button"
+      data-url={url}
+      data-text={text}
+      data-via={user}
+      data-hashtags={hashtags}
+    >
+      Tweet
+    </a>
+  );
+};
+
+TwitterTweetButton.defaultProps = {
+  url: typeof window !== 'undefined' ? window.location.href : '',
+  text: '',
+  hashtags: '',
+  user: '',
+};
+
+export default TwitterTweetButton;

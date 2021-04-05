@@ -1,4 +1,4 @@
-import { Component, createRef, RefObject } from 'react';
+import { FC, useEffect } from 'react';
 
 declare let FB: {
   XFBML: {
@@ -14,46 +14,40 @@ export type FacebookButtonProps = {
   share?: boolean;
 };
 
-export default class FacebookButton extends Component<FacebookButtonProps> {
-  ref: RefObject<HTMLDivElement>;
-
-  static defaultProps = {
-    url: typeof window !== 'undefined' ? window.location.href : '',
-    layout: 'standard',
-    action: 'like',
-    showFaces: false,
-    share: false,
-  };
-
-  constructor(props: FacebookButtonProps) {
-    super(props);
-    this.ref = createRef();
-  }
-
-  componentDidMount(): void {
+const FacebookButton: FC<FacebookButtonProps> = (props) => {
+  useEffect(() => {
+    let script: HTMLScriptElement;
     if (typeof FB === 'undefined') {
-      const s = document.createElement('script');
-      s.src = '//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5';
-      s.id = 'facebook-jssdk';
-      if (this.ref.current?.parentNode) this.ref.current.parentNode.appendChild(s);
+      script = document.createElement('script');
+      script.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5';
+      script.id = 'facebook-jssdk';
+      document.getElementsByTagName('head')[0]?.appendChild(script);
     } else {
       FB.XFBML.parse();
     }
-  }
 
-  render(): JSX.Element {
-    const { url, layout, action, showFaces, share, ...others } = this.props;
-    return (
-      <div
-        ref={this.ref}
-        className="fb-like"
-        data-href={url}
-        data-layout={layout}
-        data-action={action}
-        data-show-faces={showFaces}
-        data-share={share}
-        {...others}
-      />
-    );
-  }
-}
+    return () => script?.remove();
+  }, [props]);
+  const { url, layout, action, showFaces, share, ...others } = props;
+  return (
+    <div
+      className="fb-like"
+      data-href={url}
+      data-layout={layout}
+      data-action={action}
+      data-show-faces={showFaces}
+      data-share={share}
+      {...others}
+    />
+  );
+};
+
+FacebookButton.defaultProps = {
+  url: typeof window !== 'undefined' ? window.location.href : '',
+  layout: 'standard',
+  action: 'like',
+  showFaces: false,
+  share: false,
+};
+
+export default FacebookButton;
