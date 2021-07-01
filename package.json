@@ -88,7 +88,7 @@
     "eslint-plugin-react": "7.24.0",
     "eslint-plugin-react-hooks": "4.2.0",
     "husky": "7.0.0",
-    "jest": "26.6.3",
+    "jest": "27.0.6",
     "lint-staged": "11.0.0",
     "npm-run-all": "4.1.5",
     "parcel-bundler": "1.12.5",
@@ -111,6 +111,7 @@
       "tsx",
       "jsx"
     ],
+    "testEnvironment": "jsdom",
     "transform": {
       "^.+\\.tsx": "ts-jest"
     },
