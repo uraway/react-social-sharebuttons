@@ -20,6 +20,7 @@
     "fix:eslint": "yarn lint:eslint --fix",
     "fix:prettier": "yarn lint:prettier --write",
     "test": "jest",
+    "test:ci": "jest --ci --runInBand",
     "prepublish": "yarn build",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "deploy": "storybook-to-ghpages"

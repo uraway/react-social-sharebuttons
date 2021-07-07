@@ -22,7 +22,7 @@ jobs:
       - run: yarn build
       - run: yarn lint
       - run:
-          command: yarn test
+          command: yarn test:ci
           no_output_timeout: 30m
       - store_test_results:
           path: ./reports
