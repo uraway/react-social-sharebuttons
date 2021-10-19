@@ -78,7 +78,7 @@
     "@storybook/addon-knobs": "6.2.9",
     "@storybook/react": "6.3.4",
     "@storybook/storybook-deployer": "2.8.10",
-    "@types/jest": "26.0.24",
+    "@types/jest": "27.0.2",
     "@types/react": "17.0.14",
     "@types/react-test-renderer": "17.0.1",
     "@typescript-eslint/eslint-plugin": "4.28.3",
