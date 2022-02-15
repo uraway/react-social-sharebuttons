@@ -3,7 +3,7 @@ version: 2.1
 executors:
   default:
     docker:
-      - image: cimg/node:16.5.0
+      - image: cimg/node:16.11.1
 
 jobs:
   test:
