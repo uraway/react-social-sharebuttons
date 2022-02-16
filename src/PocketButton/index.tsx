@@ -11,8 +11,6 @@ const PocketButton: FC<PocketButtonProps> = (props) => {
     script.async = true;
     script.id = 'pocket-btn-js';
     document.getElementsByTagName('head')[0]?.appendChild(script);
-
-    return () => script?.remove();
   }, []);
   const { count, ...others } = props;
   return (

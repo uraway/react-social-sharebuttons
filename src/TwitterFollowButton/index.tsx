@@ -24,8 +24,6 @@ const TwitterFollowButton: FC<TwitterFollowButtonProps> = (props) => {
     } else {
       twttr.widgets.load();
     }
-
-    return () => script?.remove();
   }, [props]);
 
   const { user, showCount } = props;

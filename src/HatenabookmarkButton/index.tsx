@@ -14,8 +14,6 @@ const HatenaBookmarkButton: FC<HatenaBookmarkButtonProps> = (props) => {
     script.src = 'https://b.st-hatena.com/js/bookmark_button.js';
     script.type = 'text/javascript';
     document.getElementsByTagName('head')[0]?.appendChild(script);
-
-    return () => script?.remove();
   }, []);
 
   const { url, title, layout, ...others } = props;

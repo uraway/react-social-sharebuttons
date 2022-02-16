@@ -11,8 +11,6 @@ const TumblrPostButton: FC<TumblrPostButtonProps> = (props) => {
     script.src = 'https://secure.assets.tumblr.com/share-button.js';
     script.id = 'tumblr-js';
     document.getElementsByTagName('head')[0]?.appendChild(script);
-
-    return () => script?.remove();
   }, []);
   const { color, notes } = props;
   return (

@@ -25,8 +25,6 @@ const FacebookButton: FC<FacebookButtonProps> = (props) => {
     } else {
       FB.XFBML.parse();
     }
-
-    return () => script?.remove();
   }, [props]);
   const { url, layout, action, showFaces, share, ...others } = props;
   return (

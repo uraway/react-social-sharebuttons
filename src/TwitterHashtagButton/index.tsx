@@ -24,8 +24,6 @@ const TwitterHashtagButton: FC<TwitterHashtagButtonProps> = (props) => {
     } else {
       twttr.widgets.load();
     }
-
-    return () => script?.remove();
   }, []);
   const { hashtag, text } = props;
   return (

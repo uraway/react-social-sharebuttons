@@ -26,8 +26,6 @@ const TwitterTweetButton: FC<TwitterTweetButtonProps> = (props) => {
     } else {
       twttr.widgets.load();
     }
-
-    return () => script?.remove();
   }, []);
 
   const { url, text, user, hashtags } = props;

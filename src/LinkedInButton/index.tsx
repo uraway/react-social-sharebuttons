@@ -18,8 +18,6 @@ const LinkedInButton: FC<LinkedInButtonProps> = (props) => {
     script.type = 'text/javascript';
     if (lang) script.lang = lang;
     document.getElementsByTagName('head')[0]?.appendChild(script);
-
-    return () => script?.remove();
   }, [lang, props]);
 
   return <script type="IN/Share" data-url={url} data-counter={counter} />;
