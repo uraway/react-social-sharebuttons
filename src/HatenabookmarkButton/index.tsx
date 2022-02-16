@@ -1,4 +1,5 @@
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
+import { useLayoutEffectOnce } from '../utils';
 
 declare let window: Window & { Hatena: unknown };
 
@@ -9,12 +10,14 @@ export type HatenaBookmarkButtonProps = {
 };
 
 const HatenaBookmarkButton: FC<HatenaBookmarkButtonProps> = (props) => {
-  useEffect(() => {
+  useLayoutEffectOnce(() => {
     const script = document.createElement('script');
     script.src = 'https://b.st-hatena.com/js/bookmark_button.js';
     script.type = 'text/javascript';
     document.getElementsByTagName('head')[0]?.appendChild(script);
-  }, []);
+
+    return () => script.remove();
+  });
 
   const { url, title, layout, ...others } = props;
 

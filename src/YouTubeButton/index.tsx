@@ -1,4 +1,5 @@
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
+import { useLayoutEffectOnce } from '../utils';
 
 export type YouTubeButtonProps = {
   channel: string;
@@ -8,15 +9,25 @@ export type YouTubeButtonProps = {
 };
 
 const YouTubeButton: FC<YouTubeButtonProps> = (props) => {
-  useEffect(() => {
+  useLayoutEffectOnce(() => {
     const script = document.createElement('script');
     script.src = 'https://apis.google.com/js/platform.js';
     document.getElementsByTagName('head')[0]?.appendChild(script);
-  }, []);
+
+    return () => script.remove();
+  });
 
   const { channel, layout, theme, count } = props;
   return (
-    <div className="g-ytsubscribe" data-channel={channel} data-layout={layout} data-theme={theme} data-count={count} />
+    <div>
+      <div
+        className="g-ytsubscribe"
+        data-channel={channel}
+        data-layout={layout}
+        data-theme={theme}
+        data-count={count}
+      />
+    </div>
   );
 };
 

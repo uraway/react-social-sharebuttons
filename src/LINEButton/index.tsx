@@ -47,9 +47,11 @@ const LINEButton: FC<LINEButtonProps> = ({ image = '20x20', text = '', alt = 'LI
   const currentImg = useMemo(() => imgSet[image], [image]);
 
   return (
-    <a href={`http://line.me/R/msg/text/?${encodeURIComponent(text)}`}>
-      <img src={currentImg.src} style={{ height: currentImg.height, width: currentImg.width }} alt={alt} />
-    </a>
+    <div>
+      <a href={`http://line.me/R/msg/text/?${encodeURIComponent(text)}`}>
+        <img src={currentImg.src} style={{ height: currentImg.height, width: currentImg.width }} alt={alt} />
+      </a>
+    </div>
   );
 };
 
