@@ -114,7 +114,7 @@
     ],
     "testEnvironment": "jsdom",
     "transform": {
-      "^.+\\.tsx": "ts-jest"
+      "^.+\\.tsx?": "ts-jest"
     },
     "globals": {
       "ts-jest": {
