@@ -6,6 +6,24 @@ on:
 
 jobs:
   setup:
+    if: github.event_name == 'push'
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node-version: [16]
+    name: Setup (Node ${{ matrix.node-version }} on ${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: yarn
+      - name: Install node_modules
+        run: yarn --check-files --frozen-lockfile --non-interactive
+
+  test:
     if: github.event.pull_request.draft == false
     strategy:
       matrix:
@@ -13,8 +31,6 @@ jobs:
         node-version: [16]
     name: Setup (Node ${{ matrix.node-version }} on ${{ matrix.os }})
     runs-on: ${{ matrix.os }}
-    env:
-      NODE_ENV: test
     steps:
       - uses: actions/checkout@v2
       - name: Use Node.js ${{ matrix.node-version }}
