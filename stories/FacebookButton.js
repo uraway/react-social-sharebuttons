@@ -1,6 +1,6 @@
 import React from 'react';
 import { text, select, boolean } from '@storybook/addon-knobs';
-import { FacebookButton } from '../dist/index.esm.js';
+import { FacebookButton } from '../dist/index.es.js'
 
 const layoutOptions = {
   standard: 'standard',

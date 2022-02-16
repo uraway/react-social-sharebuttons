@@ -1,6 +1,6 @@
 import React from 'react';
 import { text, select } from '@storybook/addon-knobs';
-import { LinkedInButton } from '../dist/index.esm.js';
+import { LinkedInButton } from '../dist/index.es.js'
 
 export default {
   title: 'LinkedInButton',

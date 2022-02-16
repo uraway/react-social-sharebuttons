@@ -1,5 +1,5 @@
 import { text, select } from '@storybook/addon-knobs';
-import { YouTubeButton } from '../dist/index.esm.js';
+import { YouTubeButton } from '../dist/index.es.js';
 
 export default {
   title: 'YouTubeButton',

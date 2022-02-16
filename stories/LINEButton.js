@@ -1,6 +1,6 @@
 import React from 'react';
 import { text, select } from '@storybook/addon-knobs';
-import { LINEButton } from '../dist/index.esm.js';
+import { LINEButton } from '../dist/index.es.js'
 
 export default {
   title: 'LINEButton',

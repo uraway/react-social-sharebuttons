@@ -2,16 +2,20 @@
   "name": "react-social-sharebuttons",
   "version": "3.4.0",
   "description": "Simple React components for Social Share Buttons.",
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.esm.js",
-  "source": "src/index.ts",
-  "types": "dist/index.d.ts",
+  "main": "./dist/index.umd.js",
+  "module": "./dist/index.es.js",
+  "exports": {
+    "import": "./dist/index.es.js",
+    "require": "./dist/index.umd.js"
+  },
+  "types": "./types/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "types"
   ],
   "scripts": {
-    "build": "rollup -c && tsc --emitDeclarationOnly",
-    "build-watch": "rollup -c -w",
+    "build": "vite build && tsc --emitDeclarationOnly",
+    "watch": "vite build -w",
     "lint": "run-p lint:*",
     "lint:typecheck": "tsc",
     "lint:eslint": "eslint src",
@@ -103,7 +107,8 @@
     "rollup-plugin-terser": "7.0.2",
     "ts-jest": "27.1.3",
     "tslib": "2.3.1",
-    "typescript": "4.5.5"
+    "typescript": "4.5.5",
+    "vite": "^2.8.3"
   },
   "jest": {
     "moduleFileExtensions": [

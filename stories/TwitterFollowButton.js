@@ -1,6 +1,6 @@
 import React from 'react';
 import { boolean, text } from '@storybook/addon-knobs';
-import { TwitterFollowButton } from '../dist/index.esm.js';
+import { TwitterFollowButton } from '../dist/index.es.js'
 
 export default {
   title: 'TwitterFollowButton',
