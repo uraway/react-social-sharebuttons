@@ -1,17 +1,21 @@
 {
   "name": "react-social-sharebuttons",
-  "version": "3.4.0",
+  "version": "3.4.2",
   "description": "Simple React components for Social Share Buttons.",
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.esm.js",
-  "source": "src/index.ts",
-  "types": "dist/index.d.ts",
+  "main": "./dist/index.umd.js",
+  "module": "./dist/index.es.js",
+  "exports": {
+    "import": "./dist/index.es.js",
+    "require": "./dist/index.umd.js"
+  },
+  "types": "./types/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "types"
   ],
   "scripts": {
-    "build": "rollup -c && tsc --emitDeclarationOnly",
-    "build-watch": "rollup -c -w",
+    "build": "vite build && tsc --emitDeclarationOnly",
+    "watch": "vite build -w",
     "lint": "run-p lint:*",
     "lint:typecheck": "tsc",
     "lint:eslint": "eslint src",
@@ -71,10 +75,6 @@
     "@babel/plugin-proposal-class-properties": "7.16.7",
     "@babel/preset-env": "7.16.11",
     "@babel/preset-react": "7.16.7",
-    "@rollup/plugin-babel": "5.3.0",
-    "@rollup/plugin-commonjs": "19.0.2",
-    "@rollup/plugin-node-resolve": "13.1.3",
-    "@rollup/plugin-typescript": "8.3.0",
     "@storybook/addon-knobs": "6.4.0",
     "@storybook/react": "6.4.19",
     "@storybook/storybook-deployer": "2.8.10",
@@ -83,6 +83,7 @@
     "@types/react-test-renderer": "17.0.1",
     "@typescript-eslint/eslint-plugin": "4.33.0",
     "@typescript-eslint/parser": "4.33.0",
+    "@vitejs/plugin-react": "1.2.0",
     "eslint": "7.32.0",
     "eslint-plugin-import": "2.25.4",
     "eslint-plugin-jsx-a11y": "6.5.1",
@@ -95,15 +96,11 @@
     "parcel-bundler": "1.12.5",
     "prettier": "2.5.1",
     "react": "17.0.2",
-    "react-dom": "17.0.2",
     "react-test-renderer": "17.0.2",
-    "rollup": "2.67.2",
-    "rollup-plugin-delete": "2.0.0",
-    "rollup-plugin-peer-deps-external": "2.2.4",
-    "rollup-plugin-terser": "7.0.2",
     "ts-jest": "27.1.3",
-    "tslib": "2.3.1",
-    "typescript": "4.5.5"
+    "typescript": "4.5.5",
+    "vite": "2.8.3",
+    "react-dom": "17.0.2"
   },
   "jest": {
     "moduleFileExtensions": [
@@ -114,7 +111,7 @@
     ],
     "testEnvironment": "jsdom",
     "transform": {
-      "^.+\\.tsx": "ts-jest"
+      "^.+\\.tsx?": "ts-jest"
     },
     "globals": {
       "ts-jest": {

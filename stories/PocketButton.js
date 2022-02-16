@@ -1,6 +1,6 @@
 import React from 'react';
 import { select } from '@storybook/addon-knobs';
-import { PocketButton } from '../dist/index.esm.js';
+import { PocketButton } from '../dist/index.es.js'
 
 export default {
   title: 'PocketButton',

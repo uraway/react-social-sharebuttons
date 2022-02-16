@@ -1,4 +1,5 @@
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
+import { useLayoutEffectOnce } from '../utils';
 
 declare let FB: {
   XFBML: {
@@ -15,8 +16,8 @@ export type FacebookButtonProps = {
 };
 
 const FacebookButton: FC<FacebookButtonProps> = (props) => {
-  useEffect(() => {
-    let script: HTMLScriptElement;
+  useLayoutEffectOnce(() => {
+    let script: HTMLScriptElement | undefined;
     if (typeof FB === 'undefined') {
       script = document.createElement('script');
       script.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5';
@@ -27,18 +28,20 @@ const FacebookButton: FC<FacebookButtonProps> = (props) => {
     }
 
     return () => script?.remove();
-  }, [props]);
+  });
   const { url, layout, action, showFaces, share, ...others } = props;
   return (
-    <div
-      className="fb-like"
-      data-href={url}
-      data-layout={layout}
-      data-action={action}
-      data-show-faces={showFaces}
-      data-share={share}
-      {...others}
-    />
+    <div>
+      <div
+        className="fb-like"
+        data-href={url}
+        data-layout={layout}
+        data-action={action}
+        data-show-faces={showFaces}
+        data-share={share}
+        {...others}
+      />
+    </div>
   );
 };
 

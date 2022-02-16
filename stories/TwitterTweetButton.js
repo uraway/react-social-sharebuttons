@@ -1,6 +1,6 @@
 import React from 'react';
 import { text } from '@storybook/addon-knobs';
-import { TwitterTweetButton } from '../dist/index.esm.js';
+import { TwitterTweetButton } from '../dist/index.es.js'
 
 export default {
   title: 'TwitterTweetButton',

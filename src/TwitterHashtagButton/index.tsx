@@ -1,4 +1,5 @@
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
+import { useLayoutEffectOnce } from '../utils';
 
 declare let twttr: {
   widgets: {
@@ -12,8 +13,8 @@ export type TwitterHashtagButtonProps = {
 };
 
 const TwitterHashtagButton: FC<TwitterHashtagButtonProps> = (props) => {
-  useEffect(() => {
-    let script: HTMLScriptElement;
+  useLayoutEffectOnce(() => {
+    let script: HTMLScriptElement | undefined;
 
     if (typeof twttr === 'undefined') {
       script = document.createElement('script');
@@ -26,15 +27,17 @@ const TwitterHashtagButton: FC<TwitterHashtagButtonProps> = (props) => {
     }
 
     return () => script?.remove();
-  }, []);
+  });
   const { hashtag, text } = props;
   return (
-    <a
-      href={`https://twitter.com/intent/tweet?button_hashtag=${hashtag}&text=${text || ''}`}
-      className="twitter-hashtag-button"
-    >
-      Tweet {hashtag}
-    </a>
+    <div>
+      <a
+        href={`https://twitter.com/intent/tweet?button_hashtag=${hashtag}&text=${text || ''}`}
+        className="twitter-hashtag-button"
+      >
+        Tweet {hashtag}
+      </a>
+    </div>
   );
 };
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { text, select } from '@storybook/addon-knobs';
-import { FeedlyButton } from '../dist/index.esm.js';
+import { FeedlyButton } from '../dist/index.es.js'
 
 export default {
   title: 'FeedlyButton',

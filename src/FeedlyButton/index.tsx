@@ -117,14 +117,16 @@ const FeedlyButton: FC<FeedlyButtonProps> = ({
 }) => {
   const currentLayout = useMemo(() => layoutSet[layout], [layout]);
   return (
-    <a href={`https://feedly.com/i/subscription/feed/${encodeURIComponent(feedurl)}`} target="blank">
-      <img
-        src={currentLayout.img}
-        alt="follow us in feedly"
-        style={{ width: width || currentLayout.width, height: height || currentLayout.height }}
-        {...others}
-      />
-    </a>
+    <div>
+      <a href={`https://feedly.com/i/subscription/feed/${encodeURIComponent(feedurl)}`} target="blank">
+        <img
+          src={currentLayout?.img}
+          alt="follow us in feedly"
+          style={{ width: width || currentLayout?.width, height: height || currentLayout?.height }}
+          {...others}
+        />
+      </a>
+    </div>
   );
 };
 

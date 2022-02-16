@@ -1,4 +1,5 @@
-import { FC, useEffect } from 'react';
+import { FC } from 'react';
+import { useLayoutEffectOnce } from '../utils';
 
 declare let twttr: {
   widgets: {
@@ -12,8 +13,8 @@ export type TwitterFollowButtonProps = {
 };
 
 const TwitterFollowButton: FC<TwitterFollowButtonProps> = (props) => {
-  useEffect(() => {
-    let script: HTMLScriptElement;
+  useLayoutEffectOnce(() => {
+    let script: HTMLScriptElement | undefined;
 
     if (typeof twttr === 'undefined') {
       script = document.createElement('script');
@@ -26,14 +27,16 @@ const TwitterFollowButton: FC<TwitterFollowButtonProps> = (props) => {
     }
 
     return () => script?.remove();
-  }, [props]);
+  });
 
   const { user, showCount } = props;
 
   return (
-    <a href={`https://twitter.com/${user}`} className="twitter-follow-button" data-show-count={showCount}>
-      Follow @{user}
-    </a>
+    <div>
+      <a href={`https://twitter.com/${user}`} className="twitter-follow-button" data-show-count={showCount}>
+        Follow @{user}
+      </a>
+    </div>
   );
 };
 

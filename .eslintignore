@@ -5,3 +5,4 @@ node_modules/
 flow-typed/
 rollup.config.js
 stories
+vite.config.js

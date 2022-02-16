@@ -1,6 +1,6 @@
 import React from 'react';
 import { select } from '@storybook/addon-knobs';
-import { TumblrPostButton } from '../dist/index.esm.js';
+import { TumblrPostButton } from '../dist/index.es.js'
 
 export default {
   title: 'TumblrPostButton',

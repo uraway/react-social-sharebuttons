@@ -1,23 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly with other props 1`] = `
-<a
-  className="pocket-btn"
-  data-lang="en"
-  data-pocket-count="vertical"
-  data-pocket-label="pocket"
->
-  Pocket
-</a>
+<div>
+  <a
+    className="pocket-btn"
+    data-lang="en"
+    data-pocket-count="vertical"
+    data-pocket-label="pocket"
+  >
+    Pocket
+  </a>
+</div>
 `;
 
 exports[`renders correctly with required props 1`] = `
-<a
-  className="pocket-btn"
-  data-lang="en"
-  data-pocket-count="horizontal"
-  data-pocket-label="pocket"
->
-  Pocket
-</a>
+<div>
+  <a
+    className="pocket-btn"
+    data-lang="en"
+    data-pocket-count="horizontal"
+    data-pocket-label="pocket"
+  >
+    Pocket
+  </a>
+</div>
 `;
